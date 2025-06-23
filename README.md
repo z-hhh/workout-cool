@@ -105,19 +105,20 @@ management._
    cd workout-cool
    ```
 
-2. **Install dependencies**
+2. **Choose your installation method:**
 
-   ```bash
-   pnpm install
-   ```
+<details>
+<summary><b>🐳 With Docker</b></summary>
 
-3. **Copy environment variables**
+### Docker Installation
+
+1. **Copy environment variables**
 
    ```bash
    cp .env.example .env
    ```
 
-4. **Start everything for development:**
+2. **Start everything for development:**
 
    ```sh
    make dev
@@ -126,7 +127,51 @@ management._
    - This will start the database in Docker, run migrations, seed the DB, and start the Next.js dev server.
    - To stop services run `make down`
 
-5. **Open your browser** Navigate to [http://localhost:3000](http://localhost:3000)
+3. **Open your browser** Navigate to [http://localhost:3000](http://localhost:3000)
+
+</details>
+
+<details>
+<summary><b>💻 Without Docker</b></summary>
+
+### Manual Installation
+
+1. **Install dependencies**
+
+   ```bash
+   pnpm install
+   ```
+
+2. **Copy environment variables**
+
+   ```bash
+   cp .env.example .env
+   ```
+
+3. **Set up PostgreSQL database**
+
+   - If you don't already have it, install PostgreSQL locally
+   - Create a database named `workout_cool` : `createdb -h localhost -p 5432 -U postgres workout_cool`
+
+4. **Run database migrations**
+
+   ```bash
+   npx prisma migrate dev
+   ```
+
+5. **Seed the database (optional)**
+
+See the - [Exercise database import section](#exercise-database-import)
+
+6. **Start the development server**
+
+   ```bash
+   pnpm dev
+   ```
+
+7. **Open your browser** Navigate to [http://localhost:3000](http://localhost:3000)
+
+</details>
 
 ## Exercise Database Import
 
@@ -237,13 +282,13 @@ docker run -p 3000:3000 --env-file .env.production yourusername/workout-cool
 ### Using Docker Compose
 
 #### DATABASE_URL
+
 Update the `host` to point to the `postgres` service instead of `localhost`
 `DATABASE_URL=postgresql://username:password@postgres:5432/workout_cool`
 
 ```bash
 docker compose up -d
 ```
-
 
 ### Manual Deployment
 
