@@ -43,6 +43,34 @@
   <img src="https://contrib.rocks/image?repo=Snouzy/workout-cool&nocache=1" />
 </a>
 
+## Sponsors
+
+<div>
+  <h4>They are helping making workout.cool free and open-source for everyone :</h4>
+  
+  <table>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/lj020326">
+          <img src="https://github.com/lj020326.png" width="50px;" alt="lj020326"/>
+          <br />
+          <sub><b>lj020326</b></sub>
+          <br />
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/lucasnevespereira">
+          <img src="https://github.com/lucasnevespereira.png" width="50px;" alt="lucasnevespereira"/>
+          <br />
+          <sub><b>lucasnevespereira</b></sub>
+          <br />
+        </a>
+      </td>
+    </tr>
+  </table>
+  
+</div>
+
 ## About
 
 A comprehensive fitness coaching platform that allows create workout plans for you, track progress, and access a vast exercise database with
