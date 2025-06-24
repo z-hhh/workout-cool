@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useTheme } from "next-themes";
 import { Heart, X, Code, Server, Coffee, Github } from "lucide-react";
 
 import { useI18n } from "locales/client";
@@ -15,7 +14,6 @@ interface DonationModalProps {
 export function DonationModal({ isOpen, onClose }: DonationModalProps) {
   const t = useI18n();
   const modalRef = useRef<HTMLDialogElement>(null);
-  const theme = useTheme();
 
   useEffect(() => {
     const modal = modalRef.current;
