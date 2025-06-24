@@ -48,6 +48,12 @@
 <div>
   <h4>They are helping making workout.cool free and open-source for everyone :</h4>
   
+<a href="https://vercel.com/oss">
+  <img alt="Vercel OSS Program" src="https://vercel.com/oss/program-badge.svg" />
+</a>
+<br/>
+<br/>
+
   <table>
     <tr>
       <td align="center">
