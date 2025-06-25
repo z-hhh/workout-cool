@@ -1,4 +1,4 @@
-const CACHE_NAME = "workout-cool-v1";
+const CACHE_NAME = "1.2.3";
 const urlsToCache = [
   "/",
   "/manifest.json",
@@ -67,4 +67,6 @@ self.addEventListener("activate", (event) => {
       );
     }),
   );
+
+  self.clients.claim();
 });
