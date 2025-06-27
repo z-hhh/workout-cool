@@ -52,25 +52,38 @@ export async function updateSession(data: UpdateSessionData) {
     throw new Error("SESSION_NOT_FOUND");
   }
 
-  // Check if any of the new slugs already exist in the same week (excluding current session)
-  const existingSlugs = await prisma.programSession.findFirst({
-    where: {
-      weekId: currentSession.weekId,
-      id: { not: data.sessionId },
-      OR: [
-        { slug: data.slug },
-        { slugEn: data.slugEn },
-        { slugEs: data.slugEs },
-        { slugPt: data.slugPt },
-        { slugRu: data.slugRu },
-        { slugZhCn: data.slugZhCn },
-      ],
-    },
-  });
+  // Helper function to ensure slug uniqueness
+  async function ensureUniqueSessionSlug(baseSlug: string, field: string): Promise<string> {
+    let slug = baseSlug;
+    let counter = 1;
 
-  if (existingSlugs) {
-    throw new Error("SLUG_ALREADY_EXISTS");
+    while (true) {
+      const existing = await prisma.programSession.findFirst({
+        where: {
+          weekId: currentSession?.weekId,
+          id: { not: data.sessionId },
+          [field]: slug,
+        },
+      });
+
+      if (!existing) {
+        return slug;
+      }
+
+      counter++;
+      slug = `${baseSlug}-${counter}`;
+    }
   }
+
+  // Ensure all slugs are unique
+  const uniqueSlugs = {
+    slug: await ensureUniqueSessionSlug(data.slug, "slug"),
+    slugEn: await ensureUniqueSessionSlug(data.slugEn, "slugEn"),
+    slugEs: await ensureUniqueSessionSlug(data.slugEs, "slugEs"),
+    slugPt: await ensureUniqueSessionSlug(data.slugPt, "slugPt"),
+    slugRu: await ensureUniqueSessionSlug(data.slugRu, "slugRu"),
+    slugZhCn: await ensureUniqueSessionSlug(data.slugZhCn, "slugZhCn"),
+  };
 
   const updatedSession = await prisma.programSession.update({
     where: { id: data.sessionId },
@@ -81,12 +94,12 @@ export async function updateSession(data: UpdateSessionData) {
       titlePt: data.titlePt,
       titleRu: data.titleRu,
       titleZhCn: data.titleZhCn,
-      slug: data.slug,
-      slugEn: data.slugEn,
-      slugEs: data.slugEs,
-      slugPt: data.slugPt,
-      slugRu: data.slugRu,
-      slugZhCn: data.slugZhCn,
+      slug: uniqueSlugs.slug,
+      slugEn: uniqueSlugs.slugEn,
+      slugEs: uniqueSlugs.slugEs,
+      slugPt: uniqueSlugs.slugPt,
+      slugRu: uniqueSlugs.slugRu,
+      slugZhCn: uniqueSlugs.slugZhCn,
       description: data.description,
       descriptionEn: data.descriptionEn,
       descriptionEs: data.descriptionEs,

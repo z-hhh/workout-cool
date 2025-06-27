@@ -55,6 +55,7 @@ const EQUIPMENT_OPTIONS = [
 ];
 
 export function EditSessionModal({ open, onOpenChange, session }: EditSessionModalProps) {
+  console.log("session:", session);
   const [isLoading, setIsLoading] = useState(false);
   const [activeTab, setActiveTab] = useState("fr");
   const [selectedEquipment, setSelectedEquipment] = useState<ExerciseAttributeValueEnum[]>(session.equipment);
