@@ -4,7 +4,10 @@ import { headers } from "next/headers";
 import { revalidatePath } from "next/cache";
 
 import { prisma } from "@/shared/lib/prisma";
+import { setupAnalytics } from "@/shared/lib/analytics/server";
+import { LogEvents } from "@/shared/lib/analytics/events";
 import { auth } from "@/features/auth/lib/better-auth";
+import { env } from "@/env";
 
 export async function enrollInProgram(programId: string) {
   const session = await auth.api.getSession({
@@ -57,6 +60,20 @@ export async function enrollInProgram(programId: string) {
   });
 
   revalidatePath(`/programs/${enrollment.program.slug}`);
+
+  if (env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID) {
+    const analytics = await setupAnalytics({
+      userId,
+      fullName: `${session.user?.firstName} ${session.user?.lastName}`,
+      email: session.user?.email,
+    });
+
+    analytics.track({
+      event: LogEvents.EnrolledInProgram.name,
+      channel: LogEvents.EnrolledInProgram.channel,
+      properties: { programId },
+    });
+  }
 
   return { enrollment, isNew: true };
 }

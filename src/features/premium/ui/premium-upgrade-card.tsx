@@ -61,7 +61,6 @@ export function PremiumUpgradeCard() {
         <div className="absolute top-4 right-4">
           <Image alt="Premium mascot" className="drop-shadow-lg" height={80} src="/images/emojis/WorkoutCoolRich.png" width={80} />
         </div>
-        f
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-3">
             <div className="relative">

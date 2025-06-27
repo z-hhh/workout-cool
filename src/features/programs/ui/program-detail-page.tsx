@@ -47,7 +47,6 @@ interface ProgramDetailPageProps {
 }
 
 export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPageProps) {
-  console.log("program:", program);
   const [tab, setTab] = useQueryState("tab", parseAsString.withDefault("about"));
   const [selectedWeek, setSelectedWeek] = useQueryState("week", parseAsInteger.withDefault(1));
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
@@ -132,31 +131,33 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
   const handleJoinProgram = async () => {
     setShowWelcomeModal(false);
 
-    if (isAuthenticated && hasJoinedProgram) {
-      // Navigate to current session if user has already joined
-      const currentWeekData = program.weeks.find((w) => w.weekNumber === selectedWeek);
-      const currentSession = currentWeekData?.sessions.find((s) => s.sessionNumber === currentSessionNumber);
+    router.push(`/programs/${program.slug}/?tab=sessions`);
 
-      if (currentSession) {
-        const sessionSlug = getSlugForLocale(currentSession, currentLocale);
-        window.location.href = `/${currentLocale}/programs/${program.slug}/session/${sessionSlug}`;
-      } else {
-        // Fallback to first session if current session not found
-        const firstSession = program.weeks[0]?.sessions[0];
-        if (firstSession) {
-          const sessionSlug = getSlugForLocale(firstSession, currentLocale);
-          window.location.href = `/${currentLocale}/programs/${program.slug}/session/${sessionSlug}`;
-        }
-      }
-    } else {
-      // Navigate to first session for new users or non-authenticated users
-      // Enrollment and authentication will be handled on the session page
-      const firstSession = program.weeks[0]?.sessions[0];
-      if (firstSession) {
-        const sessionSlug = getSlugForLocale(firstSession, currentLocale);
-        window.location.href = `/${currentLocale}/programs/${program.slug}/session/${sessionSlug}`;
-      }
-    }
+    // if (isAuthenticated && hasJoinedProgram) {
+    //   // Navigate to current session if user has already joined
+    //   const currentWeekData = program.weeks.find((w) => w.weekNumber === selectedWeek);
+    //   const currentSession = currentWeekData?.sessions.find((s) => s.sessionNumber === currentSessionNumber);
+
+    //   if (currentSession) {
+    //     const sessionSlug = getSlugForLocale(currentSession, currentLocale);
+    //     window.location.href = `/${currentLocale}/programs/${program.slug}/session/${sessionSlug}`;
+    //   } else {
+    //     // Fallback to first session if current session not found
+    //     const firstSession = program.weeks[0]?.sessions[0];
+    //     if (firstSession) {
+    //       const sessionSlug = getSlugForLocale(firstSession, currentLocale);
+    //       window.location.href = `/${currentLocale}/programs/${program.slug}/session/${sessionSlug}`;
+    //     }
+    //   }
+    // } else {
+    //   // Navigate to first session for new users or non-authenticated users
+    //   // Enrollment and authentication will be handled on the session page
+    //   const firstSession = program.weeks[0]?.sessions[0];
+    //   if (firstSession) {
+    //     const sessionSlug = getSlugForLocale(firstSession, currentLocale);
+    //     window.location.href = `/${currentLocale}/programs/${program.slug}/session/${sessionSlug}`;
+    //   }
+    // }
   };
 
   const formatEquipment = (equipment: ExerciseAttributeValueEnum[]) => {
@@ -422,7 +423,6 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
                     }
 
                     return currentWeekSessions.map((session) => {
-                      console.log("session:", session);
                       const sessionSlug = getSlugForLocale(session, currentLocale);
                       const sessionName = getSessionTitle(session, currentLocale);
                       const sessionDescription = getSessionDescription(session, currentLocale);
@@ -491,10 +491,7 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
                               )}
                             </div>
                             {sessionDescription && (
-                              <p className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-1">
-                                <Dumbbell size={14} />
-                                {sessionDescription}
-                              </p>
+                              <p className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-1">{sessionDescription}</p>
                             )}
                             <p className="text-xs text-gray-600 mt-1">
                               {session.totalExercises} {t("programs.exercises")} • {session.estimatedMinutes} {t("programs.min_short")}
@@ -531,13 +528,7 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
           >
             <Image alt="Rejoindre" className="w-6 h-6 object-contain" height={24} src="/images/emojis/WorkoutCoolSwag.png" width={24} />
             <div className="flex flex-col items-center">
-              <span className="text-base">
-                {isAuthenticated && hasJoinedProgram
-                  ? t("programs.continue")
-                  : !isPremium
-                    ? t("programs.join_cta")
-                    : t("programs.join_cta")}
-              </span>
+              <span className="text-base">{isAuthenticated && hasJoinedProgram ? t("programs.continue") : t("programs.join_cta")}</span>
             </div>
             <Trophy className="text-white animate-bounce" size={18} />
           </button>

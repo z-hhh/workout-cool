@@ -237,12 +237,12 @@ export function ProgramSessionClient({ program, week, session, isAuthenticated, 
         </div>
 
         {/* Session preview content */}
-        <div className="flex-1 overflow-auto bg-gray-50 dark:bg-gray-900 p-6">
+        <div className="flex-1 bg-gray-50 dark:bg-gray-900 p-6">
           <div className="max-w-4xl mx-auto">
             <div className="bg-white dark:bg-gray-800 rounded-lg p-6 mb-6">
               {/* Session info */}
-              <div className="flex items-center justify-between mb-6">
-                <div>
+              <div className="flex items-center justify-between mb-6 flex-col-reverse sm:flex-row">
+                <div className="mt-5 sm:mt-0">
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{programSessionTitle}</h2>
                   {programSessionDescription && <p className="text-gray-600 dark:text-gray-400 mt-2">{programSessionDescription}</p>}
                 </div>
