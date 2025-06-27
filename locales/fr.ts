@@ -21,7 +21,7 @@ export default {
     become_premium: "Devenir Premium",
     back_to_program: "Retour au programme",
     no_equipment: "Aucun équipement",
-    workout_programs_title: "Programmes d'entraînement",
+    workout_programs_title: "Programmes d'entraînement (+ en cours de création)",
     workout_programs: "Programmes d'entraînement",
     workout_programs_description: "Choisissez votre défi et devenez plus fort ! 💪",
     no_programs_available: "Aucun programme disponible",

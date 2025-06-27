@@ -20,7 +20,7 @@ export default {
     become_premium: "成为高级",
     back_to_program: "返回程序",
     no_equipment: "没有设备",
-    workout_programs_title: "锻炼程序",
+    workout_programs_title: "锻炼程序 (+ 正在创建中)",
     workout_programs: "锻炼程序",
     workout_programs_description: "选择您的挑战并变得更强大！💪",
     no_programs_available: "没有可用的程序",

@@ -20,7 +20,7 @@ export default {
     back_to_program: "Voltar ao programa",
     premium_session_exercises: "Ejercicios incluidos",
     no_equipment: "Ningún equipo",
-    workout_programs_title: "Programas de entrenamiento",
+    workout_programs_title: "Programas de entrenamiento (+ en curso de creación)",
     workout_programs: "Programas de entrenamiento",
     workout_programs_description: "Elige tu desafío y hazte más fuerte! 💪",
     no_programs_available: "No hay programas disponibles",

@@ -20,7 +20,7 @@ export default {
     become_premium: "Become Premium",
     back_to_program: "Back to program",
     no_equipment: "No equipment",
-    workout_programs_title: "Workout programs",
+    workout_programs_title: "Workout programs (+ in progress)",
     workout_programs: "Workout programs",
     workout_programs_description: "Choose your challenge and become stronger! 💪",
     no_programs_available: "No programs available",
