@@ -162,6 +162,7 @@ export default async function RootLayout({ params, children }: RootLayoutProps) 
         <head>
           <meta charSet="UTF-8" />
           <meta content="width=device-width, initial-scale=1, maximum-scale=1 viewport-fit=cover" name="viewport" />
+          <meta content="ca-pub-3437447245301146" name="google-adsense-account" />
 
           {/* PWA Meta Tags */}
           <meta content="yes" name="apple-mobile-web-app-capable" />
