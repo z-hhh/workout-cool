@@ -400,9 +400,24 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
 
                 {/* Gamified Sessions List */}
                 <div className="space-y-3">
-                  {program.weeks
-                    .find((w) => w.weekNumber === selectedWeek)
-                    ?.sessions.map((session) => {
+                  {(() => {
+                    const currentWeekSessions = program.weeks.find((w) => w.weekNumber === selectedWeek)?.sessions || [];
+
+                    if (currentWeekSessions.length === 0) {
+                      return (
+                        <div className="bg-white dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl p-8 text-center">
+                          <div className="flex flex-col items-center gap-3">
+                            <div className="w-16 h-16 bg-gradient-to-r from-[#4F8EF7]/20 to-[#25CB78]/20 rounded-full flex items-center justify-center">
+                              <Timer className="text-[#4F8EF7]" size={32} />
+                            </div>
+                            <h4 className="font-bold text-gray-900 dark:text-white text-lg">{t("programs.sessions_coming_soon")}</h4>
+                            <p className="text-sm text-gray-600 dark:text-gray-400 max-w-md">{t("programs.sessions_in_creation")}</p>
+                          </div>
+                        </div>
+                      );
+                    }
+
+                    return currentWeekSessions.map((session) => {
                       console.log("session:", session);
                       const sessionSlug = getSlugForLocale(session, currentLocale);
                       const sessionName = getSessionTitle(session, currentLocale);
@@ -492,7 +507,8 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
                           </div>
                         </div>
                       );
-                    })}
+                    });
+                  })()}
                 </div>
               </div>
             </div>

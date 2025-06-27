@@ -68,6 +68,8 @@ export default {
     coming_strength: "力量 & 肌肉",
     coming_cardio: "有氧 HIIT",
     coming_yoga: "瑜伽 & 移动性",
+    sessions_coming_soon: "课程即将推出！",
+    sessions_in_creation: "我们的团队正在努力为本周创建高质量的课程。请稍后再来！🚀",
     welcome_modal: {
       welcome_title: "欢迎来到 {programTitle}！",
       subtitle: "准备挑战你的极限！💪",

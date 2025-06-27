@@ -71,6 +71,8 @@ export default {
     coming_strength: "Force & Muscle",
     coming_cardio: "Cardio HIIT",
     coming_yoga: "Yoga & Mobilité",
+    sessions_coming_soon: "Séances bientôt disponibles !",
+    sessions_in_creation: "Notre équipe est en train de créer des séances de qualité pour cette semaine. Reviens très bientôt ! 🚀",
     welcome_modal: {
       welcome_title: "Bienvenue dans {programTitle} !",
       subtitle: "Prépare-toi à repousser tes limites ! 💪",
