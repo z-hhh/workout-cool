@@ -22,7 +22,7 @@ export class StripeProvider implements PaymentProvider {
     }
 
     this.stripe = new Stripe(env.STRIPE_SECRET_KEY, {
-      apiVersion: "2024-12-18.acacia",
+      apiVersion: "2025-05-28.basil",
     });
   }
 
@@ -128,7 +128,7 @@ export class StripeProvider implements PaymentProvider {
               success: true,
               userId: session.metadata?.userId,
               action: "subscription_created",
-              expiresAt: new Date(subscription.current_period_end * 1000),
+              expiresAt: new Date(subscription.items.data[0].current_period_end * 1000),
               planId: session.metadata?.planId,
               platform: "WEB",
             };
@@ -141,8 +141,8 @@ export class StripeProvider implements PaymentProvider {
           // Also sent when switching plans if additional payment is needed
           const invoice = event.data.object as Stripe.Invoice;
 
-          if (invoice.subscription) {
-            const subscription = await this.stripe.subscriptions.retrieve(invoice.subscription as string);
+          if (invoice.parent?.subscription_details?.subscription) {
+            const subscription = await this.stripe.subscriptions.retrieve(invoice.parent?.subscription_details?.subscription as string);
 
             // Extra: Send receipt email
             // Example: await sendEmail.receipt(user.email, invoice);
@@ -154,7 +154,7 @@ export class StripeProvider implements PaymentProvider {
               success: true,
               userId: subscription.metadata?.userId,
               action: "payment_succeeded",
-              expiresAt: new Date(subscription.current_period_end * 1000),
+              expiresAt: new Date(subscription.items.data[0].current_period_end * 1000),
               paymentId: invoice.id,
               amount: invoice.amount_paid / 100, // Convert from cents
               currency: invoice.currency.toUpperCase(),
@@ -190,7 +190,7 @@ export class StripeProvider implements PaymentProvider {
             success: true,
             userId: fullSubscription.metadata?.userId,
             action: "subscription_updated",
-            expiresAt: new Date(fullSubscription.current_period_end * 1000),
+            expiresAt: new Date(fullSubscription.items.data[0].current_period_end * 1000),
             planId: planId,
             platform: "WEB",
           };
@@ -219,8 +219,8 @@ export class StripeProvider implements PaymentProvider {
           // Stripe will retry based on retry settings (3 times by default)
           const invoice = event.data.object as Stripe.Invoice;
 
-          if (invoice.subscription) {
-            const subscription = await this.stripe.subscriptions.retrieve(invoice.subscription as string);
+          if (invoice.parent?.subscription_details?.subscription) {
+            const subscription = await this.stripe.subscriptions.retrieve(invoice.parent?.subscription_details?.subscription as string);
 
             // Extra: Send payment failed email with update payment link
             // Example: await sendEmail.paymentFailed(user.email, updatePaymentUrl);
