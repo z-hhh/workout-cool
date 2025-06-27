@@ -29,7 +29,12 @@ import { getAttributeValueLabel } from "@/shared/lib/attribute-value-translation
 import { WelcomeModal } from "@/features/programs/ui/welcome-modal";
 import { ShareButton } from "@/features/programs/ui/share-button";
 import { ProgramProgress } from "@/features/programs/ui/program-progress";
-import { getProgramDescription, getProgramTitle } from "@/features/programs/lib/translations-mapper";
+import {
+  getProgramDescription,
+  getProgramTitle,
+  getSessionDescription,
+  getSessionTitle,
+} from "@/features/programs/lib/translations-mapper";
 
 import { getProgramProgress } from "../actions/get-program-progress.action";
 import { ProgramDetail } from "../actions/get-program-by-slug.action";
@@ -371,6 +376,9 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
                     .find((w) => w.weekNumber === selectedWeek)
                     ?.sessions.map((session) => {
                       const sessionSlug = getSlugForLocale(session, currentLocale);
+                      const sessionName = getSessionTitle(session, currentLocale);
+                      const sessionDescription = getSessionDescription(session, currentLocale);
+
                       const isCompleted = completedSessions.has(session.id);
                       return (
                         <div
@@ -418,7 +426,7 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-1">
                               <h4 className={`font-bold ${isCompleted ? "text-[#25CB78]" : "text-gray-900 dark:text-white"}`}>
-                                {session.title}
+                                {sessionName}
                               </h4>
                               {isCompleted && (
                                 <div className="bg-[#25CB78] text-white px-2 py-1 rounded-full text-xs font-bold">
@@ -434,10 +442,12 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
                                 </div>
                               )}
                             </div>
-                            <p className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-1">
-                              <Dumbbell size={14} />
-                              {formatEquipment(session.equipment)}
-                            </p>
+                            {sessionDescription && (
+                              <p className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-1">
+                                <Dumbbell size={14} />
+                                {sessionDescription}
+                              </p>
+                            )}
                             <p className="text-xs text-gray-600 mt-1">
                               {session.totalExercises} {t("programs.exercises")} • {session.estimatedMinutes} {t("programs.min_short")}
                             </p>
