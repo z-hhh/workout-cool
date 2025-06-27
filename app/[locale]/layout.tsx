@@ -2,20 +2,17 @@ import { Inter, Permanent_Marker } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 
+import { Providers } from "app/[locale]/providers";
 import { cn } from "@/shared/lib/utils";
 import { generateStructuredData, StructuredDataScript } from "@/shared/lib/structured-data";
 import { getServerUrl } from "@/shared/lib/server-url";
 import { SiteConfig } from "@/shared/config/site-config";
 import { WorkoutSessionsSynchronizer } from "@/features/workout-session/ui/workout-sessions-synchronizer";
 import { ThemeSynchronizer } from "@/features/theme/ui/ThemeSynchronizer";
-import { Header } from "@/features/layout/Header";
-import { Footer } from "@/features/layout/Footer";
 import { Version } from "@/components/version";
 import { TailwindIndicator } from "@/components/utils/TailwindIndicator";
 import { NextTopLoader } from "@/components/ui/next-top-loader";
 import { ServiceWorkerRegistration } from "@/components/pwa/ServiceWorkerRegistration";
-
-import { Providers } from "./providers";
 
 import type { ReactElement } from "react";
 import type { Metadata } from "next";
@@ -143,7 +140,6 @@ interface RootLayoutProps {
 
 export default async function RootLayout({ params, children }: RootLayoutProps) {
   const { locale } = await params;
-
   // Generate structured data
   const websiteStructuredData = generateStructuredData({
     type: "WebSite",
@@ -211,13 +207,7 @@ export default async function RootLayout({ params, children }: RootLayoutProps) 
             <ThemeSynchronizer />
             <NextTopLoader color="#FF5722" delay={100} showSpinner={false} />
 
-            {/* Main Card Container */}
-            <div className="card w-full max-w-3xl min-h-[500px] max-h-[90vh] h-[80vh] bg-white dark:bg-[#232324] shadow-xl border border-base-200 dark:border-slate-700 flex flex-col justify-between overflow-hidden max-sm:rounded-none max-sm:h-full rounded-lg">
-              <Header />
-              <div className="flex-1 overflow-auto flex flex-col">{children}</div>
-              <Footer />
-            </div>
-
+            {children}
             <Version />
 
             <TailwindIndicator />
