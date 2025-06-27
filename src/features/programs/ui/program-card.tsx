@@ -85,11 +85,6 @@ export async function ProgramCard({ program, featured = false, size = "medium", 
           <span className="bg-white/20 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full">
             {t(`levels.${program.level}` as keyof typeof t)}
           </span>
-          {program.isPremium && (
-            <span className="bg-yellow-500/80 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full font-semibold">
-              {t("programs.premium")}
-            </span>
-          )}
         </div>
 
         {/* Lock/Emoji/Stats */}

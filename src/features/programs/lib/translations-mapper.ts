@@ -20,7 +20,7 @@ export function getProgramSlug(program: ProgramDetail | PublicProgram, locale: L
   return getI18nField(program, "slug", locale);
 }
 
-export function getSessionTitle(session: any, locale: Locale): string {
+export function getSessionTitle(session: ProgramDetail["weeks"][number]["sessions"][number], locale: Locale): string {
   return getI18nField(session, "title", locale);
 }
 

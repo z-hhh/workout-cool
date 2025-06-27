@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Crown } from "lucide-react";
+import { Crown, TrendingUp } from "lucide-react";
 
 import { Locale } from "locales/types";
 import { getI18n } from "locales/server";
@@ -29,11 +29,14 @@ export async function ProgramsPage({ locale }: ProgramsPageProps) {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-[#4F8EF7] to-[#25CB78] p-4 sm:p-6 text-white">
+      <div className="bg-gradient-to-r from-[#4F8EF7] to-[#25CB78] p-4 sm:p-6 text-white relative">
         <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-lg sm:text-xl leading-tight font-bold mb-2">{t("programs.workout_programs")}</h1>
-            <p className="text-white/90 text-sm">{t("programs.workout_programs_description")}</p>
+          <div className="flex-1">
+            <div className="flex items-center gap-2 mb-2">
+              <h1 className="text-lg sm:text-xl leading-tight font-bold">{t("programs.workout_programs")}</h1>
+              <span className="bg-yellow-400 text-black px-2 py-1 rounded-full text-xs font-bold animate-pulse">{t("commons.new")}</span>
+            </div>
+            <p className="text-white/90 text-sm mb-3">{t("programs.workout_programs_description")}</p>
           </div>
           <div className="w-14 h-14 sm:w-16 sm:h-16 relative">
             <Image
@@ -43,6 +46,9 @@ export async function ProgramsPage({ locale }: ProgramsPageProps) {
               src="/images/emojis/WorkoutCoolHappy.png"
               width={64}
             />
+            <div className="absolute -top-1 -right-1 bg-yellow-400 rounded-full p-1">
+              <Crown className="text-black" size={12} />
+            </div>
           </div>
         </div>
       </div>
@@ -51,16 +57,29 @@ export async function ProgramsPage({ locale }: ProgramsPageProps) {
         {/* Premium Programs Section */}
         {programs.length > 0 && (
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <Crown className="text-yellow-500" size={24} />
-              <h3 className="text-xl font-bold text-base-content dark:text-gray-100">{t("programs.workout_programs_title")}</h3>
-            </div>
-
             {/* Premium programs with featured layout */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {programs.map((program, index) => (
-                <ProgramCard featured={index === 0} key={program.id} locale={locale} program={program} size="large" />
+                <div className="relative" key={program.id}>
+                  <ProgramCard featured={index === 0} locale={locale} program={program} size="large" />
+                </div>
               ))}
+            </div>
+
+            {/* Coming Soon Teaser */}
+            <div className="mt-6 bg-gray-50 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl p-6 text-center">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <TrendingUp className="text-[#4F8EF7]" size={20} />
+                <h4 className="font-bold text-gray-900 dark:text-white">{t("programs.more_programs_coming_title")}</h4>
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{t("programs.more_programs_coming_description")}</p>
+              <div className="flex items-center justify-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+                <span className="bg-[#4F8EF7]/10 text-[#4F8EF7] px-2 py-1 rounded-full">{t("programs.coming_strength")}</span>
+                <span className="bg-[#25CB78]/10 text-[#25CB78] px-2 py-1 rounded-full">{t("programs.coming_cardio")}</span>
+                <span className="bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 px-2 py-1 rounded-full">
+                  {t("programs.coming_yoga")}
+                </span>
+              </div>
             </div>
           </div>
         )}

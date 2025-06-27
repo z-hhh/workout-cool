@@ -59,6 +59,16 @@ export default {
     share_success: "Compartido com sucesso!",
     copied_to_clipboard: "Link copiado!",
     share_failed: "Erro ao compartilhar",
+    important_info: "Informações importantes",
+    donation_teaser:
+      "No início, funcionávamos com doações. Mas como pode imaginar, as doações não foram suficientes para cobrir os custos de desenvolvimento e funcionamento. Então criámos um pacote que nos ajudará a manter as luzes acesas — e desbloquear alguns superpoderes pelo caminho.",
+    new: "NOVO",
+    more_programs_coming_title: "Mais programas em breve!",
+    more_programs_coming_description:
+      "Estamos a trabalhar duro para criar novos programas. Ao passar a premium agora, terá todos eles automaticamente. Obrigado pelo seu apoio. 🚀",
+    coming_strength: "Força & Músculo",
+    coming_cardio: "Cardio HIIT",
+    coming_yoga: "Yoga & Mobilidade",
     welcome_modal: {
       welcome_title: "Bem-vindo ao {programTitle}!",
       subtitle: "Prepare-se para superar seus limites! 💪",
@@ -582,5 +592,6 @@ export default {
     subscription: "Abonamento",
     manage_subscription: "Gerir abonamento",
     free: "Gratuito",
+    new: "Novo",
   },
 } as const;

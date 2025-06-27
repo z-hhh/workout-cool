@@ -59,6 +59,16 @@ export default {
     copied_to_clipboard: "Link copied!",
     share_failed: "Share failed",
     premium_required_description: "This is a premium access. Upgrade to access all premium content.",
+    important_info: "Important information",
+    donation_teaser:
+      "At first, we were running on donations. But as you can imagine, donations weren't sufficient to cover development and running costs. So we made you a package that will help us keep the lights on — and unlock a few superpowers along the way.",
+    new: "NEW",
+    more_programs_coming_title: "More programs coming soon!",
+    more_programs_coming_description:
+      "We're working hard to create new programs. By upgrading to premium now, you'll have them all automatically. Thanks for your support. 🚀",
+    coming_strength: "Force & Muscle",
+    coming_cardio: "Cardio HIIT",
+    coming_yoga: "Yoga & Mobility",
     welcome_modal: {
       welcome_title: "Welcome to {programTitle}!",
       subtitle: "Get ready to push your limits! 💪",
@@ -584,5 +594,6 @@ export default {
     in_progress: "In progress",
     premium: "Premium",
     free: "Free",
+    new: "New",
   },
 } as const;

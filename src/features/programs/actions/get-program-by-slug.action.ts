@@ -51,7 +51,17 @@ export interface ProgramDetail {
       id: string;
       sessionNumber: number;
       title: string;
+      titleEn: string;
+      titleEs: string;
+      titlePt: string;
+      titleRu: string;
+      titleZhCn: string;
       description: string;
+      descriptionEn: string;
+      descriptionEs: string;
+      descriptionPt: string;
+      descriptionRu: string;
+      descriptionZhCn: string;
       slug: string;
       slugEn: string;
       slugEs: string;
@@ -151,7 +161,17 @@ export async function getProgramBySlug(slug: string): Promise<ProgramDetail | nu
           id: session.id,
           sessionNumber: session.sessionNumber,
           title: session.title,
+          titleEn: session.titleEn,
+          titleEs: session.titleEs,
+          titlePt: session.titlePt,
+          titleRu: session.titleRu,
+          titleZhCn: session.titleZhCn,
           description: session.description,
+          descriptionEn: session.descriptionEn,
+          descriptionEs: session.descriptionEs,
+          descriptionPt: session.descriptionPt,
+          descriptionRu: session.descriptionRu,
+          descriptionZhCn: session.descriptionZhCn,
           slug: session.slug,
           slugEn: session.slugEn,
           slugEs: session.slugEs,

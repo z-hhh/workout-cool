@@ -59,6 +59,15 @@ export default {
     share_success: "分享成功！",
     copied_to_clipboard: "链接已复制！",
     share_failed: "分享失败",
+    important_info: "重要信息",
+    donation_teaser:
+      "起初，我们依靠捐赠运营。但正如您所想，捐赠不足以支付开发和运营成本。因此，我们为您制作了一个套餐，这将帮助我们维持运营 — 并在此过程中解锁一些超能力。",
+    new: "新",
+    more_programs_coming_title: "更多课程即将推出！",
+    more_programs_coming_description: "我们正在努力创建新的课程。通过现在升级到高级版，您将自动获得所有课程。感谢您的支持。🚀",
+    coming_strength: "力量 & 肌肉",
+    coming_cardio: "有氧 HIIT",
+    coming_yoga: "瑜伽 & 移动性",
     welcome_modal: {
       welcome_title: "欢迎来到 {programTitle}！",
       subtitle: "准备挑战你的极限！💪",
@@ -576,5 +585,6 @@ export default {
     in_progress: "进行中",
     premium: "高级",
     free: "免费",
+    new: "新",
   },
 } as const;

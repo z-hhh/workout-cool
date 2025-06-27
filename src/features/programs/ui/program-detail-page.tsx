@@ -223,6 +223,32 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
                 {/* User Progress - Only show if authenticated */}
                 {isAuthenticated && <ProgramProgress programId={program.id} />}
 
+                {/* Early Access Teaser Section - Only show if not premium */}
+                {!isPremium && (
+                  <div className="relative bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 border-2 border-dashed border-blue-200 dark:border-blue-700 rounded-xl p-6 overflow-hidden">
+                    {/* Subtle animation background */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#4F8EF7]/5 to-[#25CB78]/5 animate-pulse"></div>
+
+                    <div className="relative z-10">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0">
+                          <div className="w-12 h-12 bg-gradient-to-r from-[#4F8EF7] to-[#25CB78] rounded-full flex items-center justify-center">
+                            <Trophy className="text-white" size={24} />
+                          </div>
+                        </div>
+
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-2">
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-white">{t("programs.important_info")}</h3>
+                          </div>
+
+                          <p className="text-sm text-gray-600 dark:text-gray-400  italic">💡 {t("programs.donation_teaser")}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 {/* Gamified Community Stats */}
                 <div className="bg-gradient-to-r from-[#4F8EF7]/10 to-[#25CB78]/10 border-2 border-[#4F8EF7]/20 rounded-xl p-4">
                   <div className="flex items-center justify-between">
@@ -375,6 +401,7 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
                   {program.weeks
                     .find((w) => w.weekNumber === selectedWeek)
                     ?.sessions.map((session) => {
+                      console.log("session:", session);
                       const sessionSlug = getSlugForLocale(session, currentLocale);
                       const sessionName = getSessionTitle(session, currentLocale);
                       const sessionDescription = getSessionDescription(session, currentLocale);
@@ -471,16 +498,28 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
         </div>
       </div>
 
-      {/* Gamified Floating CTA - Only show if program is not completed */}
+      {/* Enhanced Persuasive Floating CTA - Only show if program is not completed */}
       {!isProgramCompleted && tab !== "sessions" && (
-        <button
-          className="absolute bottom-2 right-0 left-0 max-w-xs mx-auto bg-gradient-to-r from-[#4F8EF7] to-[#25CB78] hover:from-[#4F8EF7]/80 hover:to-[#25CB78]/80 text-white px-8 py-4 rounded-full font-bold border-2 border-white/20 hover:scale-105 transition-all duration-200 ease-in-out z-1 flex items-center justify-center gap-2"
-          onClick={handleCTAClick}
-        >
-          <Image alt="Rejoindre" className="w-6 h-6 object-contain" height={24} src="/images/emojis/WorkoutCoolSwag.png" width={24} />
-          {isAuthenticated && hasJoinedProgram ? t("programs.continue") : t("programs.join_cta")}
-          <Trophy className="text-white" size={18} />
-        </button>
+        <div className="absolute bottom-2 right-0 left-0 max-w-sm mx-auto px-4">
+          <button
+            className={
+              "w-full bg-gradient-to-r from-[#4F8EF7] to-[#25CB78] hover:from-[#4F8EF7]/90 hover:to-[#25CB78]/90 text-white px-6 py-4 font-bold border-2 border-white/20 hover:scale-[1.02] transition-all duration-200 ease-in-out z-1 flex items-center justify-center gap-2 shadow-xl rounded-full"
+            }
+            onClick={handleCTAClick}
+          >
+            <Image alt="Rejoindre" className="w-6 h-6 object-contain" height={24} src="/images/emojis/WorkoutCoolSwag.png" width={24} />
+            <div className="flex flex-col items-center">
+              <span className="text-base">
+                {isAuthenticated && hasJoinedProgram
+                  ? t("programs.continue")
+                  : !isPremium
+                    ? t("programs.join_cta")
+                    : t("programs.join_cta")}
+              </span>
+            </div>
+            <Trophy className="text-white animate-bounce" size={18} />
+          </button>
+        </div>
       )}
 
       {/* Program Completed Message */}

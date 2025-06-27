@@ -21,7 +21,7 @@ export default {
     become_premium: "Devenir Premium",
     back_to_program: "Retour au programme",
     no_equipment: "Aucun équipement",
-    workout_programs_title: "Programmes d'entraînement (+ en cours de création)",
+    workout_programs_title: "Programmes d'entraînement",
     workout_programs: "Programmes d'entraînement",
     workout_programs_description: "Choisissez votre défi et devenez plus fort ! 💪",
     no_programs_available: "Aucun programme disponible",
@@ -61,6 +61,16 @@ export default {
     share_success: "Partagé avec succès !",
     copied_to_clipboard: "Lien copié !",
     share_failed: "Échec du partage",
+    important_info: "Informations importantes",
+    donation_teaser:
+      "Au début, nous fonctionnions grâce aux dons. Mais comme tu peux l'imaginer, les dons n'étaient pas suffisants pour couvrir les coûts de développement et de fonctionnement. Nous avons donc créé un package qui nous aidera à garder les lumières allumées — et à toi, de débloquer quelques super-pouvoirs en cours de route. :)",
+    new: "NOUVEAU",
+    more_programs_coming_title: "Encore plus de programmes en préparation !",
+    more_programs_coming_description:
+      "On bosse dur pour créer de nouveaux programmes. En passant premium maintenant, tu les auras tous automatiquement. Merci pour ton soutien. 🚀",
+    coming_strength: "Force & Muscle",
+    coming_cardio: "Cardio HIIT",
+    coming_yoga: "Yoga & Mobilité",
     welcome_modal: {
       welcome_title: "Bienvenue dans {programTitle} !",
       subtitle: "Prépare-toi à repousser tes limites ! 💪",
@@ -585,5 +595,6 @@ export default {
     in_progress: "En cours",
     premium: "Premium",
     free: "Gratuit",
+    new: "Nouveau",
   },
 } as const;
