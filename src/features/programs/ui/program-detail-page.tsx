@@ -275,7 +275,7 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
                           <span className="text-sm font-bold text-[#4F8EF7]">{t("programs.community")}</span>
                         </div>
                         <span className="text-sm text-gray-600 dark:text-gray-400">
-                          +{program.totalEnrollments} {t("programs.community_count")}
+                          +{program.participantCount} {t("programs.community_count")}
                         </span>
                       </div>
                     </div>
