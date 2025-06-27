@@ -2,6 +2,7 @@ import { Locale } from "locales/types";
 import { getI18nField } from "@/shared/lib/i18n-mapper";
 import { PublicProgram } from "@/features/programs/actions/get-public-programs.action";
 import { ProgramDetail } from "@/features/programs/actions/get-program-by-slug.action";
+import { ProgramSessionWithExercises } from "@/entities/program-session/types/program-session.types";
 import { ProgramI18nReference } from "@/entities/program/types/program.types";
 
 // Re-export the generic mapper for convenience
@@ -20,7 +21,10 @@ export function getProgramSlug(program: ProgramDetail | PublicProgram, locale: L
   return getI18nField(program, "slug", locale);
 }
 
-export function getSessionTitle(session: ProgramDetail["weeks"][number]["sessions"][number], locale: Locale): string {
+export function getSessionTitle(
+  session: ProgramDetail["weeks"][number]["sessions"][number] | ProgramSessionWithExercises,
+  locale: Locale,
+): string {
   return getI18nField(session, "title", locale);
 }
 
