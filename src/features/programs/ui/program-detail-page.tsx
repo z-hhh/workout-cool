@@ -34,6 +34,8 @@ import {
   getProgramTitle,
   getSessionDescription,
   getSessionTitle,
+  getWeekDescription,
+  getWeekTitle,
 } from "@/features/programs/lib/translations-mapper";
 
 import { getProgramProgress } from "../actions/get-program-progress.action";
@@ -45,13 +47,13 @@ interface ProgramDetailPageProps {
 }
 
 export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPageProps) {
+  console.log("program:", program);
   const [tab, setTab] = useQueryState("tab", parseAsString.withDefault("about"));
   const [selectedWeek, setSelectedWeek] = useQueryState("week", parseAsInteger.withDefault(1));
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
   const [completedSessions, setCompletedSessions] = useState<Set<string>>(new Set());
   const [_isLoadingProgress, setIsLoadingProgress] = useState(false);
   const [hasJoinedProgram, setHasJoinedProgram] = useState(false);
-  const [currentWeek, setCurrentWeek] = useState(1);
   const [currentSessionNumber, setCurrentSessionNumber] = useState(1);
   const [isProgramCompleted, setIsProgramCompleted] = useState(false);
   const t = useI18n();
@@ -61,6 +63,9 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
   const isPremium = useIsPremium();
   const programTitle = getProgramTitle(program, currentLocale);
   const programDescription = getProgramDescription(program, currentLocale);
+  const currentWeekFull = program.weeks.find((w) => w.weekNumber === selectedWeek);
+  const currentWeekTitle = currentWeekFull ? getWeekTitle(currentWeekFull, currentLocale) : "";
+  const currentWeekDescription = currentWeekFull ? getWeekDescription(currentWeekFull, currentLocale) : "";
 
   // Load completed sessions when component mounts or when authenticated
   useEffect(() => {
@@ -70,7 +75,7 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
       // Reset states for non-authenticated users
       setHasJoinedProgram(false);
       setCompletedSessions(new Set());
-      setCurrentWeek(1);
+      setSelectedWeek(1);
       setCurrentSessionNumber(1);
       setIsProgramCompleted(false);
     }
@@ -92,7 +97,7 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
       const progress = await getProgramProgress(program.id);
       if (progress?.enrollment) {
         setHasJoinedProgram(true);
-        setCurrentWeek(progress.stats.currentWeek);
+        setSelectedWeek(progress.stats.currentWeek);
         setCurrentSessionNumber(progress.stats.currentSession);
         setIsProgramCompleted(progress.stats.isProgramCompleted);
         if (progress.enrollment.sessionProgress) {
@@ -104,7 +109,7 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
       } else {
         setHasJoinedProgram(false);
         setCompletedSessions(new Set());
-        setCurrentWeek(1);
+        setSelectedWeek(1);
         setCurrentSessionNumber(1);
         setIsProgramCompleted(false);
       }
@@ -129,7 +134,7 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
 
     if (isAuthenticated && hasJoinedProgram) {
       // Navigate to current session if user has already joined
-      const currentWeekData = program.weeks.find((w) => w.weekNumber === currentWeek);
+      const currentWeekData = program.weeks.find((w) => w.weekNumber === selectedWeek);
       const currentSession = currentWeekData?.sessions.find((s) => s.sessionNumber === currentSessionNumber);
 
       if (currentSession) {
@@ -394,9 +399,8 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
                 </div>
 
                 {/* Current Week Title */}
-                <h2 className="text-xl font-bold">
-                  {t("programs.week")} {selectedWeek}
-                </h2>
+                <h2 className="text-xl font-bold">{currentWeekTitle}</h2>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{currentWeekDescription}</p>
 
                 {/* Gamified Sessions List */}
                 <div className="space-y-3">

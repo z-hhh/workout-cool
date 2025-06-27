@@ -8,6 +8,14 @@ import { ProgramI18nReference } from "@/entities/program/types/program.types";
 // Re-export the generic mapper for convenience
 export { getI18nField };
 
+export const getWeekTitle = (week: ProgramDetail["weeks"][number], locale: Locale): string => {
+  return getI18nField(week, "title", locale);
+};
+
+export const getWeekDescription = (week: ProgramDetail["weeks"][number], locale: Locale): string => {
+  return getI18nField(week, "description", locale);
+};
+
 // Specific mappers for program entities
 export function getProgramTitle(program: ProgramDetail | PublicProgram | ProgramI18nReference, locale: Locale): string {
   return getI18nField(program, "title", locale);
