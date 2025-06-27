@@ -188,10 +188,12 @@ export function ProgramDetailPage({ program, isAuthenticated }: ProgramDetailPag
                   <Users size={12} />
                   {program.totalEnrollments}+
                 </span>
-                {program.isPremium && <span className="bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-medium">Premium</span>}
+                {/* eslint-disable-next-line max-len */}
+                {/* {program.isPremium && <span className="bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-medium">Premium</span>} */}
               </div>
               <h1 className="text-3xl font-bold mb-2">{programTitle}</h1>
-              <p className="text-white/90 text-sm">{program.category}</p>
+              {/* TODO: i18n category */}
+              {/* <p className="text-white/90 text-sm">{program.category}</p> */}
             </div>
           </div>
         </div>

@@ -41,7 +41,7 @@ export function SessionAccessGuard({
   // User needs to authenticate
   if (accessAction === "require_auth") {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh] px-6">
+      <div className="flex flex-col items-center justify-center min-h-[60vh] p-6">
         <div className="max-w-md mx-auto text-center">
           <div className="flex items-center justify-center mx-auto mb-6">
             <Image alt="Login" height={96} src="/images/emojis/WorkoutCoolPolice.png" width={96} />
@@ -94,7 +94,7 @@ export function SessionAccessGuard({
   // User needs premium subscription
   if (accessAction === "require_premium") {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh] px-6">
+      <div className="flex flex-col items-center justify-center min-h-[60vh] p-6">
         <div className="max-w-md mx-auto text-center">
           <div className="flex items-center justify-center mx-auto mb-6">
             <Image alt="Premium" height={128} src="/images/emojis/WorkoutCoolRich.png" width={128} />
