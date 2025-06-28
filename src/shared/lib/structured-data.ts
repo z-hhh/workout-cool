@@ -490,6 +490,7 @@ export function generateStructuredData({
           fr: ["calculateur macros", "calculateur macros", "formule macros", "calcul macros", "calculateur macros"],
           es: ["calculadora macros", "calculadora macros", "fórmula macros", "calculo macros", "calculadora macros"],
           pt: ["calculadora macros", "calculadora macros", "fórmula macros", "calculo macros", "calculadora macros"],
+          ru: ["калькулятор макросов", "калькулятор макросов", "формула макросов", "расчет макросов", "калькулятор макросов"],
           "zh-CN": ["宏计算器", "宏计算器", "宏公式", "宏计算", "宏计算器"],
         },
         bmi: {
@@ -497,6 +498,7 @@ export function generateStructuredData({
           fr: ["calculateur bmi", "formule bmi", "calcul bmi", "calculateur bmi"],
           es: ["calculadora bmi", "fórmula bmi", "calculo bmi", "calculadora bmi"],
           pt: ["calculadora bmi", "fórmula bmi", "calculo bmi", "calculadora bmi"],
+          ru: ["калькулятор ИМТ", "формула ИМТ", "расчет ИМТ", "калькулятор ИМТ"],
           "zh-CN": ["BMI计算器", "BMI公式", "BMI计算", "BMI计算器"],
         },
         "heart-rate": {

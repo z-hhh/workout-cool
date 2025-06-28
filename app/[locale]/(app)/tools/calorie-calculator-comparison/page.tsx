@@ -4,24 +4,75 @@ import { Metadata } from "next";
 import { ChevronLeftIcon } from "lucide-react";
 
 import { getI18n } from "locales/server";
+import { getServerUrl } from "@/shared/lib/server-url";
+import { generateSEOMetadata, SEOScripts } from "@/components/seo/SEOHead";
 
 import { CalorieCalculatorComparison } from "./CalorieCalculatorComparison";
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getI18n();
 
-  return {
+  return generateSEOMetadata({
     title: t("tools.calorie-calculator-comparison.meta.title"),
     description: t("tools.calorie-calculator-comparison.meta.description"),
-    keywords: t("tools.calorie-calculator-comparison.meta.keywords"),
-  };
+    keywords: t("tools.calorie-calculator-comparison.meta.keywords").split(", "),
+    locale,
+    canonical: `${getServerUrl()}/${locale}/tools/calorie-calculator-comparison`,
+    structuredData: {
+      type: "Calculator",
+      calculatorData: {
+        calculatorType: "calorie",
+        inputFields: ["gender", "age", "height", "weight", "body fat percentage", "activity level", "goal"],
+        outputFields: ["BMR comparison", "TDEE comparison", "accuracy analysis", "formula recommendations"],
+        formula: "Multi-Formula Comparison Tool",
+        accuracy: "Comprehensive accuracy analysis across 5 formulas",
+        targetAudience: ["fitness professionals", "researchers", "health enthusiasts", "Cal the Chef users"],
+        relatedCalculators: [
+          "calorie-calculator",
+          "mifflin-st-jeor-calculator",
+          "harris-benedict-calculator",
+          "katch-mcardle-calculator",
+          "cunningham-calculator",
+          "oxford-calculator"
+        ]
+      }
+    }
+  });
 }
 
-export default async function CalorieCalculatorComparisonPage() {
+export default async function CalorieCalculatorComparisonPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const t = await getI18n();
 
   return (
-    <div className="min-h-screen light:bg-white dark:bg-base-200/20">
+    <>
+      <SEOScripts
+        title={t("tools.calorie-calculator-comparison.meta.title")}
+        description={t("tools.calorie-calculator-comparison.meta.description")}
+        locale={locale}
+        canonical={`${getServerUrl()}/${locale}/tools/calorie-calculator-comparison`}
+        structuredData={{
+          type: "Calculator",
+          calculatorData: {
+            calculatorType: "calorie",
+            inputFields: ["gender", "age", "height", "weight", "body fat percentage", "activity level", "goal"],
+            outputFields: ["BMR comparison", "TDEE comparison", "accuracy analysis", "formula recommendations"],
+            formula: "Multi-Formula Comparison Tool",
+            accuracy: "Comprehensive accuracy analysis across 5 formulas",
+            targetAudience: ["fitness professionals", "researchers", "health enthusiasts", "Cal the Chef users"],
+            relatedCalculators: [
+              "calorie-calculator",
+              "mifflin-st-jeor-calculator",
+              "harris-benedict-calculator",
+              "katch-mcardle-calculator",
+              "cunningham-calculator",
+              "oxford-calculator"
+            ]
+          }
+        }}
+      />
+      <div className="min-h-screen light:bg-white dark:bg-base-200/20">
       <div className="container mx-auto px-2 sm:px-4 py-8 sm:py-12 max-w-6xl">
         {/* Back to hub */}
         <Link
@@ -58,7 +109,8 @@ export default async function CalorieCalculatorComparisonPage() {
         </div>
 
         <CalorieCalculatorComparison />
+        </div>
       </div>
-    </div>
+    </>
   );
 }

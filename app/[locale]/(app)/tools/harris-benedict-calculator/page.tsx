@@ -4,25 +4,72 @@ import { Metadata } from "next";
 import { ChevronLeftIcon } from "lucide-react";
 
 import { getI18n } from "locales/server";
+import { getServerUrl } from "@/shared/lib/server-url";
+import { generateSEOMetadata, SEOScripts } from "@/components/seo/SEOHead";
 
 import { CalorieCalculatorClient } from "./CalorieCalculatorClient";
 import "./styles.css";
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getI18n();
 
-  return {
+  return generateSEOMetadata({
     title: t("tools.harris-benedict.meta.title"),
     description: t("tools.harris-benedict.meta.description"),
-    keywords: t("tools.harris-benedict.meta.keywords"),
-  };
+    keywords: t("tools.harris-benedict.meta.keywords").split(", "),
+    locale,
+    canonical: `${getServerUrl()}/${locale}/tools/harris-benedict-calculator`,
+    structuredData: {
+      type: "Calculator",
+      calculatorData: {
+        calculatorType: "calorie",
+        inputFields: ["gender", "age", "height", "weight", "activity level", "goal"],
+        outputFields: ["BMR (Harris-Benedict)", "TDEE", "target calories", "recommended macros"],
+        formula: "Harris-Benedict Equation (1984) - Classic Formula",
+        accuracy: "Good accuracy for most adults (±10-15% error rate)",
+        targetAudience: ["adults", "fitness enthusiasts", "health conscious individuals", "Cal the Chef users"],
+        relatedCalculators: [
+          "calorie-calculator",
+          "mifflin-st-jeor-calculator",
+          "katch-mcardle-calculator",
+          "calorie-calculator-comparison"
+        ]
+      }
+    }
+  });
 }
 
-export default async function HarrisBenedictCalculatorPage() {
+export default async function HarrisBenedictCalculatorPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const t = await getI18n();
 
   return (
-    <div className="min-h-screen light:bg-white dark:bg-base-200/20">
+    <>
+      <SEOScripts
+        title={t("tools.harris-benedict.meta.title")}
+        description={t("tools.harris-benedict.meta.description")}
+        locale={locale}
+        canonical={`${getServerUrl()}/${locale}/tools/harris-benedict-calculator`}
+        structuredData={{
+          type: "Calculator",
+          calculatorData: {
+            calculatorType: "calorie",
+            inputFields: ["gender", "age", "height", "weight", "activity level", "goal"],
+            outputFields: ["BMR (Harris-Benedict)", "TDEE", "target calories", "recommended macros"],
+            formula: "Harris-Benedict Equation (1984) - Classic Formula",
+            accuracy: "Good accuracy for most adults (±10-15% error rate)",
+            targetAudience: ["adults", "fitness enthusiasts", "health conscious individuals", "Cal the Chef users"],
+            relatedCalculators: [
+              "calorie-calculator",
+              "mifflin-st-jeor-calculator",
+              "katch-mcardle-calculator",
+              "calorie-calculator-comparison"
+            ]
+          }
+        }}
+      />
+      <div className="min-h-screen light:bg-white dark:bg-base-200/20">
       <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-8 max-w-4xl">
         {/* Back to hub */}
         <Link
@@ -64,7 +111,8 @@ export default async function HarrisBenedictCalculatorPage() {
         </div>
 
         <CalorieCalculatorClient />
+        </div>
       </div>
-    </div>
+    </>
   );
 }

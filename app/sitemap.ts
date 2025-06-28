@@ -7,8 +7,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const currentDate = new Date().toISOString();
 
   // Static routes with locale support
-  const locales = ["fr", "en", "es", "pt", "ru", "zh-cn"];
-  
+  const locales = ["fr", "en", "es", "pt", "ru", "zh-CN"];
+
   const staticRoutes = [
     // Home page (root)
     {
@@ -18,12 +18,65 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1.0,
     },
     // Home pages for all locales
-    ...locales.map(locale => ({
+    ...locales.map((locale) => ({
       url: `${baseUrl}/${locale}`,
       lastModified: currentDate,
       changeFrequency: "daily" as const,
       priority: 1.0,
     })),
+    // Tools pages for all locales
+    ...locales.map((locale) => ({
+      url: `${baseUrl}/${locale}/tools`,
+      lastModified: currentDate,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    })),
+    // Calorie calculator hub pages for all locales
+    ...locales.map((locale) => ({
+      url: `${baseUrl}/${locale}/tools/calorie-calculator`,
+      lastModified: currentDate,
+      changeFrequency: "weekly" as const,
+      priority: 0.9,
+    })),
+    // Calorie calculator formula pages for all locales
+    ...locales.flatMap((locale) => [
+      {
+        url: `${baseUrl}/${locale}/tools/mifflin-st-jeor-calculator`,
+        lastModified: currentDate,
+        changeFrequency: "monthly" as const,
+        priority: 0.85,
+      },
+      {
+        url: `${baseUrl}/${locale}/tools/harris-benedict-calculator`,
+        lastModified: currentDate,
+        changeFrequency: "monthly" as const,
+        priority: 0.85,
+      },
+      {
+        url: `${baseUrl}/${locale}/tools/katch-mcardle-calculator`,
+        lastModified: currentDate,
+        changeFrequency: "monthly" as const,
+        priority: 0.85,
+      },
+      {
+        url: `${baseUrl}/${locale}/tools/cunningham-calculator`,
+        lastModified: currentDate,
+        changeFrequency: "monthly" as const,
+        priority: 0.85,
+      },
+      {
+        url: `${baseUrl}/${locale}/tools/oxford-calculator`,
+        lastModified: currentDate,
+        changeFrequency: "monthly" as const,
+        priority: 0.85,
+      },
+      {
+        url: `${baseUrl}/${locale}/tools/calorie-calculator-comparison`,
+        lastModified: currentDate,
+        changeFrequency: "monthly" as const,
+        priority: 0.8,
+      },
+    ]),
     // Auth pages (lower priority as they're functional pages)
     {
       url: `${baseUrl}/auth/signin`,
@@ -44,12 +97,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
-    ...locales.map(locale => ({
+    ...locales.map((locale) => ({
       url: `${baseUrl}/${locale}/about`,
       lastModified: currentDate,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
+    // Tools pages for all locales
+    {
+      url: `${baseUrl}/tools`,
+      lastModified: currentDate,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+
     // Legal pages
     {
       url: `${baseUrl}/legal/privacy`,
@@ -70,7 +131,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.2,
     },
     // Legal pages for all locales
-    ...locales.flatMap(locale => [
+    ...locales.flatMap((locale) => [
       {
         url: `${baseUrl}/${locale}/legal/privacy`,
         lastModified: currentDate,
@@ -117,7 +178,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       es: program.slugEs,
       pt: program.slugPt,
       ru: program.slugRu,
-      "zh-cn": program.slugZhCn,
+      "zh-CN": program.slugZhCn,
     };
 
     Object.entries(programSlugs).forEach(([locale, slug]) => {
@@ -139,7 +200,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
               es: session.slugEs,
               pt: session.slugPt,
               ru: session.slugRu,
-              "zh-cn": session.slugZhCn,
+              "zh-CN": session.slugZhCn,
             };
 
             const sessionSlug = sessionSlugs[locale as keyof typeof sessionSlugs];

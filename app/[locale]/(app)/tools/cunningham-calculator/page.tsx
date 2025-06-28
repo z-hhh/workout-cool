@@ -4,25 +4,74 @@ import { Metadata } from "next";
 import { ChevronLeftIcon } from "lucide-react";
 
 import { getI18n } from "locales/server";
+import { getServerUrl } from "@/shared/lib/server-url";
+import { generateSEOMetadata, SEOScripts } from "@/components/seo/SEOHead";
 
 import { CalorieCalculatorClient } from "./CalorieCalculatorClient";
 import "./styles.css";
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getI18n();
 
-  return {
+  return generateSEOMetadata({
     title: t("tools.cunningham.meta.title"),
     description: t("tools.cunningham.meta.description"),
-    keywords: t("tools.cunningham.meta.keywords"),
-  };
+    keywords: t("tools.cunningham.meta.keywords").split(", "),
+    locale,
+    canonical: `${getServerUrl()}/${locale}/tools/cunningham-calculator`,
+    structuredData: {
+      type: "Calculator",
+      calculatorData: {
+        calculatorType: "calorie",
+        inputFields: ["gender", "age", "height", "weight", "body fat percentage", "activity level", "goal"],
+        outputFields: ["BMR (Cunningham)", "lean body mass", "TDEE", "target calories", "recommended macros"],
+        formula: "Cunningham Equation - Active Individual Formula",
+        accuracy: "Excellent accuracy for active individuals with known body fat (±5% error rate)",
+        targetAudience: ["active athletes", "trained individuals", "bodybuilders", "fitness enthusiasts", "Cal the Chef users"],
+        relatedCalculators: [
+          "calorie-calculator",
+          "mifflin-st-jeor-calculator",
+          "harris-benedict-calculator",
+          "katch-mcardle-calculator",
+          "calorie-calculator-comparison"
+        ]
+      }
+    }
+  });
 }
 
-export default async function CunninghamCalculatorPage() {
+export default async function CunninghamCalculatorPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const t = await getI18n();
 
   return (
-    <div className="min-h-screen light:bg-white dark:bg-base-200/20">
+    <>
+      <SEOScripts
+        title={t("tools.cunningham.meta.title")}
+        description={t("tools.cunningham.meta.description")}
+        locale={locale}
+        canonical={`${getServerUrl()}/${locale}/tools/cunningham-calculator`}
+        structuredData={{
+          type: "Calculator",
+          calculatorData: {
+            calculatorType: "calorie",
+            inputFields: ["gender", "age", "height", "weight", "body fat percentage", "activity level", "goal"],
+            outputFields: ["BMR (Cunningham)", "lean body mass", "TDEE", "target calories", "recommended macros"],
+            formula: "Cunningham Equation - Active Individual Formula",
+            accuracy: "Excellent accuracy for active individuals with known body fat (±5% error rate)",
+            targetAudience: ["active athletes", "trained individuals", "bodybuilders", "fitness enthusiasts", "Cal the Chef users"],
+            relatedCalculators: [
+              "calorie-calculator",
+              "mifflin-st-jeor-calculator",
+              "harris-benedict-calculator",
+              "katch-mcardle-calculator",
+              "calorie-calculator-comparison"
+            ]
+          }
+        }}
+      />
+      <div className="min-h-screen light:bg-white dark:bg-base-200/20">
       <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-8  max-w-4xl">
         {/* Back to hub */}
         <Link
@@ -64,7 +113,8 @@ export default async function CunninghamCalculatorPage() {
         </div>
 
         <CalorieCalculatorClient />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
