@@ -1,11 +1,9 @@
-/* eslint-disable max-len */
 "use client";
 
 import React, { useState } from "react";
 
 import { useI18n } from "locales/client";
 
-import { calculateCalories, type CalorieCalculatorInputs, type CalorieResults } from "../../shared/calorie-formulas.utils";
 import { WeightInput } from "../mifflin-st-jeor-calculator/components/WeightInput";
 import { UnitSelector } from "../mifflin-st-jeor-calculator/components/UnitSelector";
 import { HeightInput } from "../mifflin-st-jeor-calculator/components/HeightInput";
@@ -14,6 +12,7 @@ import { GenderSelector } from "../mifflin-st-jeor-calculator/components/GenderS
 import { AgeInput } from "../mifflin-st-jeor-calculator/components/AgeInput";
 import { ActivityLevelSelector } from "../mifflin-st-jeor-calculator/components/ActivityLevelSelector";
 import { BodyFatInput } from "../katch-mcardle-calculator/components/BodyFatInput";
+import { calculateCalories, type CalorieCalculatorInputs, type CalorieResults } from "../../shared/calorie-formulas.utils";
 
 interface FormulaResult {
   name: string;

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 import { useI18n } from "locales/client";
 
+import { calculateCalories, type CalorieCalculatorInputs, type CalorieResults } from "../../shared/calorie-formulas.utils";
 import { WeightInput } from "./components/WeightInput";
 import { UnitSelector } from "./components/UnitSelector";
 import { ResultsDisplay } from "./components/ResultsDisplay";
@@ -13,7 +14,6 @@ import { GenderSelector } from "./components/GenderSelector";
 import { FAQSection } from "./components/FAQSection";
 import { AgeInput } from "./components/AgeInput";
 import { ActivityLevelSelector } from "./components/ActivityLevelSelector";
-import { calculateCalories, type CalorieCalculatorInputs, type CalorieResults } from "../../shared/calorie-formulas.utils";
 
 export function CalorieCalculatorClient() {
   const t = useI18n();
