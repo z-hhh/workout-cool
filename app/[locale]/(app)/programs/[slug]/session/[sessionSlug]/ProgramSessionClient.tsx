@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, Play, Clock, Dumbbell } from "lucide-react";
+import { ArrowLeft, Play } from "lucide-react";
 import { ExerciseAttributeNameEnum, ProgramWeek } from "@prisma/client";
 
 import { useCurrentLocale, useI18n } from "locales/client";
@@ -238,9 +238,9 @@ export function ProgramSessionClient({ program, week, session, isAuthenticated, 
         </div>
 
         {/* Session preview content */}
-        <main className="flex-1 bg-gray-50 dark:bg-gray-900 p-6">
+        <main className="flex-1 bg-gray-50 dark:bg-gray-900 p-2 md:p-6">
           <div className="max-w-4xl mx-auto">
-            <article className="bg-white dark:bg-gray-800 rounded-lg p-6 mb-6">
+            <article className="bg-white dark:bg-gray-800 rounded-lg p-2 sm:p-6 mb-6">
               {/* Session info */}
               <header className="flex items-center justify-between mb-6 flex-col-reverse sm:flex-row">
                 <div className="mt-5 sm:mt-0">

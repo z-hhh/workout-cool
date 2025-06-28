@@ -136,6 +136,289 @@ export default {
     workouts_tooltip: "Créer votre propre entraînement",
     premium: "Premium",
     premium_tooltip: "Passer à Premium",
+    tools: "Outils",
+    tools_tooltip: "Parcourir les outils",
+    profile: "Profil",
+    profile_tooltip: "Voir votre profil",
+  },
+  tools: {
+    try_now: "Essayer maintenant",
+    title: "Outils Fitness",
+    subtitle: "Calculateurs essentiels pour optimiser votre entraînement et nutrition",
+    moreComingSoon: "Plus d'outils bientôt disponibles",
+    meta: {
+      title: "Outils Fitness - Calculateurs pour Entraînement & Nutrition | Workout.cool",
+      description:
+        "Calculateurs fitness gratuits : TDEE, macros, IMC, zones de fréquence cardiaque, 1RM et plus. Optimisez votre entraînement et nutrition avec nos outils essentiels.",
+      keywords:
+        "calculateur fitness, calculateur calories, calculateur macros, calculateur IMC, calculateur TDEE, zones fréquence cardiaque, one rep max, outils fitness",
+    },
+    "calorie-calculator": {
+      title: "Calculateur de calories",
+      description: "Calculez vos besoins caloriques quotidiens (TDEE) selon votre activité et vos objectifs",
+      meta: {
+        title: "Calculateur de calories - TDEE & Besoins caloriques | Workout.cool",
+        description:
+          "Calculez votre dépense énergétique journalière totale (TDEE) et vos besoins caloriques. Obtenez des recommandations personnalisées pour la perte de poids, le maintien ou la prise de muscle.",
+        keywords:
+          "calculateur calories, calculateur TDEE, calories quotidiennes, calculateur perte de poids, besoins caloriques, calculateur métabolisme de base",
+      },
+      subtitle: "Calculez vos besoins caloriques quotidiens basés sur l'équation de Mifflin-St Jeor",
+      how_it_works: "Comment fonctionne ce calculateur ?",
+      how_it_works_description:
+        "Ce calculateur utilise des formules scientifiquement prouvées pour estimer vos besoins caloriques quotidiens selon vos caractéristiques personnelles et votre mode de vie.",
+      how_it_works_step1: "Nous calculons votre métabolisme de base (calories brûlées au repos)",
+      how_it_works_step2: "Nous ajustons selon votre niveau d'activité",
+      how_it_works_step3: "Nous personnalisons selon votre objectif (perdre, maintenir ou prendre du poids)",
+      calculate: "Calculer",
+      calculating: "Calcul en cours...",
+      tap_info_icons: "Appuyez sur les icônes ℹ️ pour plus d'informations",
+      gender: "Sexe",
+      male: "Homme",
+      female: "Femme",
+      units: "Unités",
+      metric: "Métrique",
+      imperial: "Impérial",
+      age: "Âge",
+      age_placeholder: "Entrez votre âge",
+      years: "ans",
+      height: "Taille",
+      height_placeholder: "Entrez votre taille",
+      weight: "Poids",
+      weight_placeholder: "Entrez votre poids",
+      cm: "cm",
+      kg: "kg",
+      lbs: "lbs",
+      feet: "pieds",
+      inches: "pouces",
+      activity_level: "Niveau d'Activité",
+      activity: {
+        sedentary: "Sédentaire",
+        sedentary_desc: "Peu ou pas d'exercice, travail de bureau, marche minimale",
+        light: "Légèrement Actif",
+        light_desc: "Exercice léger 1-3 jours/semaine, ou marche quotidienne",
+        moderate: "Modérément Actif",
+        moderate_desc: "Exercice modéré 3-5 jours/semaine, mode de vie actif",
+        active: "Très Actif",
+        active_desc: "Exercice intense 6-7 jours/semaine, travail très actif",
+        very_active: "Extrêmement Actif",
+        very_active_desc: "Athlète, travail physique + entraînement quotidien",
+      },
+      goal: "Objectif",
+      goals: {
+        lose_fast: "Perdre du Poids Rapidement",
+        lose_fast_desc: "Perdre 1 kg par semaine - Agressif mais efficace",
+        lose_slow: "Perdre du Poids",
+        lose_slow_desc: "Perdre 0,5 kg par semaine - Durable et sain",
+        maintain: "Maintenir le Poids",
+        maintain_desc: "Rester au poids actuel - Parfait pour maintenir votre forme",
+        gain_slow: "Prendre du Poids",
+        gain_slow_desc: "Prendre 0,5 kg par semaine - Construction musculaire propre",
+        gain_fast: "Prendre du Poids Rapidement",
+        gain_fast_desc: "Prendre 1 kg par semaine - Croissance musculaire maximale",
+      },
+      results: {
+        title: "Vos Résultats",
+        bmr: "MB",
+        bmr_explanation:
+          "Le Métabolisme de Base (MB) est le nombre de calories que votre corps brûle au repos complet, juste pour maintenir les fonctions vitales comme la respiration, la circulation et la production cellulaire. C'est l'énergie minimale dont votre corps a besoin pour survivre.",
+        tdee: "TDEE",
+        tdee_explanation:
+          "La Dépense Énergétique Journalière Totale (TDEE) est votre MB plus les calories brûlées par vos activités quotidiennes et l'exercice. C'est le nombre total de calories que vous brûlez en une journée selon votre niveau d'activité.",
+        target: "Calories Cibles",
+        macros: "Macros Recommandées",
+        macros_explanation:
+          "Les macronutriments (macros) sont les trois groupes de nutriments principaux dont votre corps a besoin : Protéines (pour la construction et réparation musculaire), Glucides (pour l'énergie), et Lipides (pour les hormones et l'absorption des vitamines). Les pourcentages affichés sont une répartition équilibrée adaptée à la plupart des objectifs fitness.",
+        protein: "Protéines",
+        carbs: "Glucides",
+        fat: "Lipides",
+        disclaimer:
+          "Ces calculs sont des estimations basées sur des formules moyennes. Les besoins caloriques réels peuvent varier selon les facteurs individuels. Consultez un professionnel de santé ou un diététicien pour des conseils personnalisés.",
+      },
+      faq: {
+        title: "Questions Fréquemment Posées",
+        q1: "Pourquoi mon objectif calorique est différent des autres calculateurs ?",
+        a1: "Différents calculateurs peuvent utiliser des formules ou multiplicateurs d'activité différents. Nous utilisons l'équation de Mifflin-St Jeor, considérée comme l'une des plus précises pour la plupart des gens. Cependant, le métabolisme individuel peut varier de 10-20% de ces estimations.",
+        q2: "Dois-je manger exactement ce nombre de calories chaque jour ?",
+        a2: "Ce sont des objectifs quotidiens moyens. Il est normal de manger un peu plus certains jours et moins d'autres. Concentrez-vous sur votre moyenne hebdomadaire plutôt que d'être exact chaque jour. Écoutez les signaux de faim et de satiété de votre corps.",
+        q3: "Que faire si je ne vois pas de résultats après avoir suivi ces recommandations ?",
+        a3: "Si vous ne voyez pas de résultats après 2-3 semaines, vous devrez peut-être ajuster. Votre métabolisme réel pourrait être plus élevé ou plus bas que calculé. Essayez d'ajuster de 100-200 calories et surveillez pendant 2 semaines supplémentaires. Assurez-vous également de suivre votre alimentation avec précision.",
+        q4: "Les recommandations de macros conviennent-elles à tout le monde ?",
+        a4: "La répartition 30/40/30 (protéines/glucides/lipides) est une approche équilibrée adaptée à la plupart des gens. Cependant, les athlètes, les personnes avec des conditions médicales, ou ceux suivant des régimes spécifiques (kéto, végan, etc.) peuvent avoir besoin de ratios différents. Consultez un nutritionniste pour des recommandations personnalisées.",
+      },
+    },
+    "macro-calculator": {
+      title: "Calculateur de macros",
+      description: "Trouvez votre répartition optimale en protéines, glucides et lipides pour vos objectifs",
+    },
+    "bmi-calculator": {
+      title: "Calculateur d'IMC",
+      description: "Calculez votre Indice de Masse Corporelle et comprenez votre catégorie de poids",
+    },
+    "heart-rate-calculator": {
+      title: "Zones de fréquence cardiaque",
+      description: "Découvrez vos zones d'entraînement optimales pour brûler des graisses et performer",
+    },
+    "one-rep-max": {
+      title: "Calculateur 1RM",
+      description: "Estimez votre max sur une répétition et planifiez vos pourcentages d'entraînement",
+    },
+    back_to_calculators: "Retour aux calculateurs",
+    body_fat_percentage: "Pourcentage de Graisse Corporelle",
+    body_fat_info_title: "Qu'est-ce que le Pourcentage de Graisse Corporelle ?",
+    body_fat_info_content:
+      "Le pourcentage de graisse corporelle est essentiel pour les formules Katch-McArdle et Cunningham car elles calculent basé sur la masse maigre. Si vous ne connaissez pas votre % de graisse exact, utilisez des guides visuels en ligne ou des scans DEXA pour plus de précision.",
+    "calorie-calculator-hub": {
+      title: "Formules de Calculateur de calories",
+      subtitle: "Choisissez la meilleure formule pour vos besoins et obtenez des calculs caloriques précis",
+      meta: {
+        title: "Formules de Calculateur de calories - Calculateurs BMR & TDEE | Workout.cool",
+        description:
+          "Comparez différentes formules BMR : Mifflin-St Jeor, Harris-Benedict, Katch-McArdle, Cunningham et Oxford. Choisissez le meilleur calculateur de calories pour vos besoins.",
+        keywords:
+          "formules BMR, comparaison calculateur calories, Mifflin-St Jeor, Harris-Benedict, Katch-McArdle, Cunningham, Oxford, calculateur TDEE",
+      },
+      which_formula: "Quelle Formule Dois-je Choisir ?",
+      formula_explanation:
+        "Différentes formules fonctionnent mieux pour différentes personnes. Voici un guide rapide pour vous aider à choisir :",
+      recommendation_general: "Meilleure formule globale, plus précise pour la population générale",
+      recommendation_traditional: "Formule classique, largement utilisée mais légèrement moins précise",
+      recommendation_bodyfat: "Plus précise si vous connaissez votre pourcentage de graisse corporelle",
+      since: "Depuis",
+      all_formulas: "Toutes les formules",
+      popularity: "Popularité",
+      accuracy: "Précision",
+      accuracy_high: "Élevée",
+      accuracy_good: "Bonne",
+      accuracy_medium: "Moyenne",
+      best_for: "Idéal pour",
+      best_for_general: "Usage général",
+      best_for_traditional: "Traditionnel",
+      best_for_athletes: "Athlètes",
+      best_for_bodybuilders: "Culturistes",
+      best_for_european: "Population européenne",
+      best_for_comparison: "Comparer tout",
+      "mifflin-st-jeor": {
+        title: "Mifflin-St Jeor (Recommandé)",
+        description:
+          "Formule la plus précise pour la population générale, développée en 1990. Actuellement l'étalon-or pour les calculs BMR.",
+      },
+      "harris-benedict": {
+        title: "Harris-Benedict (Classique)",
+        description:
+          "Version révisée 1984 de la formule classique. Largement utilisée mais tend à surestimer les calories pour certaines personnes.",
+      },
+      "katch-mcardle": {
+        title: "Katch-McArdle (Athlètes)",
+        description:
+          "Basée sur la masse maigre. Plus précise pour les personnes qui connaissent leur pourcentage de graisse corporelle et sont physiquement actives.",
+      },
+      cunningham: {
+        title: "Cunningham (Culturistes)",
+        description:
+          "Conçue pour les athlètes très maigres et les culturistes avec peu de graisse corporelle. Utilise le calcul de masse maigre.",
+      },
+      oxford: {
+        title: "Oxford (Européenne)",
+        description: "Formule plus récente (2005) basée sur les populations européennes. Prend en compte les tranches d'âge.",
+      },
+      comparison: {
+        title: "Comparer Toutes les Formules",
+        description:
+          "Comparez les résultats de toutes les formules côte à côte pour voir les différences et choisir ce qui fonctionne le mieux pour vous.",
+      },
+    },
+    "mifflin-st-jeor": {
+      title: "Calculateur Mifflin-St Jeor",
+      subtitle: "L'étalon-or pour le calcul BMR - le plus précis pour la population générale",
+      meta: {
+        title: "Calculateur Mifflin-St Jeor - BMR & TDEE les Plus Précis | Workout.cool",
+        description:
+          "Calculez votre BMR et TDEE en utilisant l'équation Mifflin-St Jeor - la formule la plus précise pour la population générale. Obtenez des recommandations caloriques personnalisées.",
+        keywords:
+          "calculateur Mifflin-St Jeor, calculateur BMR, calculateur TDEE, calculateur calories le plus précis, calculateur métabolisme",
+      },
+      how_it_works: "Comment Fonctionne la Formule Mifflin-St Jeor",
+      how_it_works_description:
+        "Développée en 1990, cette formule est considérée comme la plus précise pour calculer le Taux Métabolique de Base (BMR) chez les adultes en bonne santé. Elle est plus précise que l'équation Harris-Benedict et est largement recommandée par les nutritionnistes et professionnels du fitness.",
+    },
+    "harris-benedict": {
+      title: "Calculateur Harris-Benedict",
+      subtitle: "Formule BMR classique - l'approche traditionnelle du calcul des calories",
+      meta: {
+        title: "Calculateur Harris-Benedict - Formule BMR & TDEE Classique | Workout.cool",
+        description:
+          "Calculez votre BMR et TDEE en utilisant l'équation Harris-Benedict révisée (1984). La formule classique qui a initié les calculs caloriques modernes.",
+        keywords: "calculateur Harris-Benedict, calculateur BMR classique, calculateur TDEE traditionnel, formule Harris-Benedict révisée",
+      },
+      how_it_works: "Comment Fonctionne la Formule Harris-Benedict",
+      how_it_works_description:
+        "Développée à l'origine en 1919 et révisée en 1984, l'équation Harris-Benedict était l'une des premières formules pour calculer le BMR. Bien que légèrement moins précise que les formules plus récentes, elle reste largement utilisée et fournit de bonnes estimations pour la plupart des gens.",
+    },
+    "katch-mcardle": {
+      title: "Calculateur Katch-McArdle",
+      subtitle: "Calcul BMR précis basé sur la masse maigre - idéal pour les athlètes",
+      meta: {
+        title: "Calculateur Katch-McArdle - BMR & TDEE Masse Maigre | Workout.cool",
+        description:
+          "Calculez votre BMR et TDEE en utilisant la formule Katch-McArdle basée sur la masse maigre. Le plus précis pour les personnes qui connaissent leur pourcentage de graisse corporelle.",
+        keywords:
+          "calculateur Katch-McArdle, BMR masse maigre, calculateur pourcentage graisse corporelle, calculateur BMR athlète, TDEE précis",
+      },
+      how_it_works: "Comment Fonctionne la Formule Katch-McArdle",
+      how_it_works_description:
+        "Cette formule calcule le BMR basé sur la masse maigre plutôt que sur le poids corporel total, la rendant plus précise pour les personnes qui connaissent leur pourcentage de graisse corporelle. Elle est particulièrement utile pour les athlètes et les individus physiquement actifs.",
+    },
+    cunningham: {
+      title: "Calculateur Cunningham",
+      subtitle: "Formule BMR conçue pour les athlètes très maigres et les culturistes",
+      meta: {
+        title: "Calculateur Cunningham - BMR pour Athlètes Maigres & Culturistes | Workout.cool",
+        description:
+          "Calculez votre BMR et TDEE en utilisant la formule Cunningham, spécialement conçue pour les athlètes très maigres et les culturistes avec peu de graisse corporelle.",
+        keywords:
+          "calculateur Cunningham, calculateur BMR culturiste, BMR athlète maigre, calculateur BMR faible graisse corporelle, calculateur préparation compétition",
+      },
+      how_it_works: "Comment Fonctionne la Formule Cunningham",
+      how_it_works_description:
+        "Développée spécifiquement pour les individus très maigres avec de faibles pourcentages de graisse corporelle, cette formule fournit des estimations BMR plus élevées que les autres équations. Elle est plus précise pour les athlètes de compétition et les culturistes en préparation de concours.",
+    },
+    oxford: {
+      title: "Calculateur Oxford",
+      subtitle: "Formule BMR moderne basée sur les populations européennes avec considérations d'âge",
+      meta: {
+        title: "Calculateur Oxford - Formule BMR & TDEE Moderne | Workout.cool",
+        description:
+          "Calculez votre BMR et TDEE en utilisant l'équation Oxford (2005), une formule moderne basée sur les populations européennes avec des calculs spécifiques à l'âge.",
+        keywords: "calculateur Oxford, calculateur BMR moderne, formule BMR européenne, calculateur BMR spécifique âge, équation BMR 2005",
+      },
+      how_it_works: "Comment Fonctionne la Formule Oxford",
+      how_it_works_description:
+        "Publiée en 2005, c'est l'une des formules BMR les plus récentes. Elle a été développée en utilisant des données de populations européennes et prend en compte les tranches d'âge, fournissant différentes équations pour les personnes de moins et plus de 30 ans.",
+    },
+    "calorie-calculator-comparison": {
+      title: "Comparer toutes les formules BMR",
+      subtitle: "Voyez comment différentes formules BMR calculent vos besoins caloriques côte à côte",
+      meta: {
+        title: "Comparaison des formules BMR - Comparer tous les calculateurs de calories | Workout.cool",
+        description:
+          "Comparez les formules Mifflin-St Jeor, Harris-Benedict, Katch-McArdle, Cunningham et Oxford BMR côte à côte. Voyez quelle formule fonctionne le mieux pour vous.",
+        keywords:
+          "comparaison formule BMR, comparaison calculateur calories, Mifflin vs Harris-Benedict, meilleur calculateur BMR, comparer formules calories",
+      },
+      how_it_works: "Comment fonctionne cette comparaison",
+      how_it_works_description:
+        "Entrez vos détails une fois et voyez comment toutes les principales formules BMR calculent vos besoins caloriques quotidiens. Cela vous aide à comprendre les différences et à choisir la formule la plus adaptée à vos objectifs.",
+      input_details: "Vos détails",
+      compare: "Comparer",
+      results_comparison: "Résultats de la comparaison des formules",
+      vs_mifflin: "vs Mifflin-St Jeor",
+      summary: "Résumé et recommandations",
+      summary_explanation:
+        "Différentes formules peuvent donner des résultats variables. Généralement, des différences de ±100-200 calories sont normales et attendues.",
+      recommendation:
+        "Pour la plupart des gens, Mifflin-St Jeor fournit la base la plus précise. Les athlètes devraient considérer Katch-McArdle s'ils connaissent leur pourcentage de graisse corporelle.",
+    },
   },
   levels: {
     BEGINNER: "Débutant",
@@ -597,6 +880,7 @@ export default {
     subscription: "Abonnement",
     manage_subscription: "Gérer abonnement",
     become_premium: "Devenir Premium",
+    coming_soon: "Bientôt disponible",
     extremely_dissatisfied: "Très insatisfait",
     somewhat_dissatisfied: "Insatisfait",
     neutral: "Neutre",
