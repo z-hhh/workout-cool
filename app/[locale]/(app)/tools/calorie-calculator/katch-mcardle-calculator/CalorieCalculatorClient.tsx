@@ -11,9 +11,10 @@ import { HeightInput } from "./components/HeightInput";
 import { GoalSelector } from "./components/GoalSelector";
 import { GenderSelector } from "./components/GenderSelector";
 import { FAQSection } from "./components/FAQSection";
+import { BodyFatInput } from "./components/BodyFatInput";
 import { AgeInput } from "./components/AgeInput";
 import { ActivityLevelSelector } from "./components/ActivityLevelSelector";
-import { calculateCalories, type CalorieCalculatorInputs, type CalorieResults } from "../shared/calorie-formulas.utils";
+import { calculateCalories, type CalorieCalculatorInputs, type CalorieResults } from "../../shared/calorie-formulas.utils";
 
 export function CalorieCalculatorClient() {
   const t = useI18n();
@@ -27,6 +28,7 @@ export function CalorieCalculatorClient() {
     weight: 70, // kg
     activityLevel: "moderate",
     goal: "maintain",
+    bodyFatPercentage: 15,
   });
 
   const [results, setResults] = useState<CalorieResults | null>(null);
@@ -36,7 +38,7 @@ export function CalorieCalculatorClient() {
     setIsCalculating(true);
     // Add a small delay for animation effect
     setTimeout(() => {
-      const calculatedResults = calculateCalories(inputs, "oxford");
+      const calculatedResults = calculateCalories(inputs, "katch");
       setResults(calculatedResults);
       setIsCalculating(false);
     }, 500);
@@ -65,6 +67,9 @@ export function CalorieCalculatorClient() {
             <WeightInput onChange={(weight) => updateInput("weight", weight)} unit={inputs.unit} value={inputs.weight} />
           </div>
 
+          {/* Body Fat Percentage - Required for Katch-McArdle */}
+          <BodyFatInput onChange={(bodyFat) => updateInput("bodyFatPercentage", bodyFat)} value={inputs.bodyFatPercentage || 15} />
+
           {/* Activity Level */}
           <ActivityLevelSelector onChange={(level) => updateInput("activityLevel", level)} value={inputs.activityLevel} />
 
@@ -74,7 +79,7 @@ export function CalorieCalculatorClient() {
           {/* Calculate Button */}
           <button
             aria-label={t("tools.calorie-calculator.calculate")}
-            className={`w-full py-4 px-6 rounded-xl bg-gradient-to-r from-[#25CB78] to-[#22C55E] text-white font-bold text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25 active:scale-[0.98] touch-manipulation ${
+            className={`w-full py-4 px-6 rounded-xl bg-gradient-to-r from-[#FF5722] to-[#EF4444] text-white font-bold text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25 active:scale-[0.98] touch-manipulation ${
               isCalculating ? "animate-pulse" : ""
             }`}
             disabled={isCalculating}

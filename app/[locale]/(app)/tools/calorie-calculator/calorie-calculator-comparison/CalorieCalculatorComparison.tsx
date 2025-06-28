@@ -5,7 +5,7 @@ import React, { useState } from "react";
 
 import { useI18n } from "locales/client";
 
-import { calculateCalories, type CalorieCalculatorInputs, type CalorieResults } from "../shared/calorie-formulas.utils";
+import { calculateCalories, type CalorieCalculatorInputs, type CalorieResults } from "../../shared/calorie-formulas.utils";
 import { WeightInput } from "../mifflin-st-jeor-calculator/components/WeightInput";
 import { UnitSelector } from "../mifflin-st-jeor-calculator/components/UnitSelector";
 import { HeightInput } from "../mifflin-st-jeor-calculator/components/HeightInput";

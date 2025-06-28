@@ -14,7 +14,7 @@ import { FAQSection } from "./components/FAQSection";
 import { BodyFatInput } from "./components/BodyFatInput";
 import { AgeInput } from "./components/AgeInput";
 import { ActivityLevelSelector } from "./components/ActivityLevelSelector";
-import { calculateCalories, type CalorieCalculatorInputs, type CalorieResults } from "../shared/calorie-formulas.utils";
+import { calculateCalories, type CalorieCalculatorInputs, type CalorieResults } from "../../shared/calorie-formulas.utils";
 
 export function CalorieCalculatorClient() {
   const t = useI18n();

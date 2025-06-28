@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 "use client";
 
 import React, { useState } from "react";
@@ -11,10 +12,9 @@ import { HeightInput } from "./components/HeightInput";
 import { GoalSelector } from "./components/GoalSelector";
 import { GenderSelector } from "./components/GenderSelector";
 import { FAQSection } from "./components/FAQSection";
-import { BodyFatInput } from "./components/BodyFatInput";
 import { AgeInput } from "./components/AgeInput";
 import { ActivityLevelSelector } from "./components/ActivityLevelSelector";
-import { calculateCalories, type CalorieCalculatorInputs, type CalorieResults } from "../shared/calorie-formulas.utils";
+import { calculateCalories, type CalorieCalculatorInputs, type CalorieResults } from "../../shared/calorie-formulas.utils";
 
 export function CalorieCalculatorClient() {
   const t = useI18n();
@@ -28,7 +28,6 @@ export function CalorieCalculatorClient() {
     weight: 70, // kg
     activityLevel: "moderate",
     goal: "maintain",
-    bodyFatPercentage: 15,
   });
 
   const [results, setResults] = useState<CalorieResults | null>(null);
@@ -38,7 +37,7 @@ export function CalorieCalculatorClient() {
     setIsCalculating(true);
     // Add a small delay for animation effect
     setTimeout(() => {
-      const calculatedResults = calculateCalories(inputs, "katch");
+      const calculatedResults = calculateCalories(inputs, "harris");
       setResults(calculatedResults);
       setIsCalculating(false);
     }, 500);
@@ -67,9 +66,6 @@ export function CalorieCalculatorClient() {
             <WeightInput onChange={(weight) => updateInput("weight", weight)} unit={inputs.unit} value={inputs.weight} />
           </div>
 
-          {/* Body Fat Percentage - Required for Katch-McArdle */}
-          <BodyFatInput onChange={(bodyFat) => updateInput("bodyFatPercentage", bodyFat)} value={inputs.bodyFatPercentage || 15} />
-
           {/* Activity Level */}
           <ActivityLevelSelector onChange={(level) => updateInput("activityLevel", level)} value={inputs.activityLevel} />
 
@@ -79,7 +75,7 @@ export function CalorieCalculatorClient() {
           {/* Calculate Button */}
           <button
             aria-label={t("tools.calorie-calculator.calculate")}
-            className={`w-full py-4 px-6 rounded-xl bg-gradient-to-r from-[#FF5722] to-[#EF4444] text-white font-bold text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25 active:scale-[0.98] touch-manipulation ${
+            className={`w-full py-4 px-6 rounded-xl bg-gradient-to-r from-[#25CB78] to-[#22C55E] text-white font-bold text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25 active:scale-[0.98] touch-manipulation ${
               isCalculating ? "animate-pulse" : ""
             }`}
             disabled={isCalculating}
@@ -89,7 +85,11 @@ export function CalorieCalculatorClient() {
               <span className="flex items-center justify-center gap-3">
                 <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
                   <circle className="opacity-25" cx="12" cy="12" fill="none" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor" />
+                  <path
+                    className="opacity-75"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    fill="currentColor"
+                  />
                 </svg>
                 {t("tools.calorie-calculator.calculating")}
               </span>
@@ -105,7 +105,9 @@ export function CalorieCalculatorClient() {
         <>
           <ResultsDisplay results={results} />
           {/* Mobile hint */}
-          <div className="sm:hidden text-center text-xs text-base-content/50 dark:text-base-content/40 mt-2">{t("tools.calorie-calculator.tap_info_icons")}</div>
+          <div className="sm:hidden text-center text-xs text-base-content/50 dark:text-base-content/40 mt-2">
+            {t("tools.calorie-calculator.tap_info_icons")}
+          </div>
         </>
       )}
 

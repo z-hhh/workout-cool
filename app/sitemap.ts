@@ -39,44 +39,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     })),
     // Calorie calculator formula pages for all locales
-    ...locales.flatMap((locale) => [
-      {
-        url: `${baseUrl}/${locale}/tools/mifflin-st-jeor-calculator`,
+    ...locales.flatMap((locale) =>
+      [
+        `${baseUrl}/${locale}/tools/calorie-calculator`,
+        `${baseUrl}/${locale}/tools/calorie-calculator/mifflin-st-jeor-calculator`,
+        `${baseUrl}/${locale}/tools/calorie-calculator/harris-benedict-calculator`,
+        `${baseUrl}/${locale}/tools/calorie-calculator/katch-mcardle-calculator`,
+        `${baseUrl}/${locale}/tools/calorie-calculator/cunningham-calculator`,
+        `${baseUrl}/${locale}/tools/calorie-calculator/oxford-calculator`,
+        `${baseUrl}/${locale}/tools/calorie-calculator/calorie-calculator-comparison`,
+      ].map((url) => ({
+        url,
         lastModified: currentDate,
         changeFrequency: "monthly" as const,
         priority: 0.85,
-      },
-      {
-        url: `${baseUrl}/${locale}/tools/harris-benedict-calculator`,
-        lastModified: currentDate,
-        changeFrequency: "monthly" as const,
-        priority: 0.85,
-      },
-      {
-        url: `${baseUrl}/${locale}/tools/katch-mcardle-calculator`,
-        lastModified: currentDate,
-        changeFrequency: "monthly" as const,
-        priority: 0.85,
-      },
-      {
-        url: `${baseUrl}/${locale}/tools/cunningham-calculator`,
-        lastModified: currentDate,
-        changeFrequency: "monthly" as const,
-        priority: 0.85,
-      },
-      {
-        url: `${baseUrl}/${locale}/tools/oxford-calculator`,
-        lastModified: currentDate,
-        changeFrequency: "monthly" as const,
-        priority: 0.85,
-      },
-      {
-        url: `${baseUrl}/${locale}/tools/calorie-calculator-comparison`,
-        lastModified: currentDate,
-        changeFrequency: "monthly" as const,
-        priority: 0.8,
-      },
-    ]),
+      })),
+    ),
     // Auth pages (lower priority as they're functional pages)
     {
       url: `${baseUrl}/auth/signin`,

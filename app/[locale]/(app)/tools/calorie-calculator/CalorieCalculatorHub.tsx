@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 "use client";
 
 import React from "react";
@@ -24,7 +23,7 @@ interface CalculatorFormula {
 const calculatorFormulas: CalculatorFormula[] = [
   {
     id: "mifflin-st-jeor",
-    href: "/tools/mifflin-st-jeor-calculator",
+    href: "/tools/calorie-calculator/mifflin-st-jeor-calculator",
     icon: <AwardIcon className="w-6 h-6" />,
     year: "1990",
     popularity: 5,
@@ -37,7 +36,7 @@ const calculatorFormulas: CalculatorFormula[] = [
   },
   {
     id: "harris-benedict",
-    href: "/tools/harris-benedict-calculator",
+    href: "/tools/calorie-calculator/harris-benedict-calculator",
     icon: <TrendingUpIcon className="w-6 h-6" />,
     year: "1984",
     popularity: 5,
@@ -50,7 +49,7 @@ const calculatorFormulas: CalculatorFormula[] = [
   },
   {
     id: "katch-mcardle",
-    href: "/tools/katch-mcardle-calculator",
+    href: "/tools/calorie-calculator/katch-mcardle-calculator",
     icon: <TargetIcon className="w-6 h-6" />,
     year: "1996",
     popularity: 3,
@@ -63,7 +62,7 @@ const calculatorFormulas: CalculatorFormula[] = [
   },
   {
     id: "cunningham",
-    href: "/tools/cunningham-calculator",
+    href: "/tools/calorie-calculator/cunningham-calculator",
     icon: <BrainIcon className="w-6 h-6" />,
     year: "1980",
     popularity: 2,
@@ -76,7 +75,7 @@ const calculatorFormulas: CalculatorFormula[] = [
   },
   {
     id: "oxford",
-    href: "/tools/oxford-calculator",
+    href: "/tools/calorie-calculator/oxford-calculator",
     icon: <GlobeIcon className="w-6 h-6" />,
     year: "2005",
     popularity: 3,
@@ -89,7 +88,7 @@ const calculatorFormulas: CalculatorFormula[] = [
   },
   {
     id: "comparison",
-    href: "/tools/calorie-calculator-comparison",
+    href: "/tools/calorie-calculator/calorie-calculator-comparison",
     icon: <ChartBarIcon className="w-6 h-6" />,
     year: "all",
     popularity: 4,

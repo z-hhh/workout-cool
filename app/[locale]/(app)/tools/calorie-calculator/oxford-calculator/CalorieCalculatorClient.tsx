@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 "use client";
 
 import React, { useState } from "react";
@@ -14,7 +13,7 @@ import { GenderSelector } from "./components/GenderSelector";
 import { FAQSection } from "./components/FAQSection";
 import { AgeInput } from "./components/AgeInput";
 import { ActivityLevelSelector } from "./components/ActivityLevelSelector";
-import { calculateCalories, type CalorieCalculatorInputs, type CalorieResults } from "../shared/calorie-formulas.utils";
+import { calculateCalories, type CalorieCalculatorInputs, type CalorieResults } from "../../shared/calorie-formulas.utils";
 
 export function CalorieCalculatorClient() {
   const t = useI18n();
@@ -37,7 +36,7 @@ export function CalorieCalculatorClient() {
     setIsCalculating(true);
     // Add a small delay for animation effect
     setTimeout(() => {
-      const calculatedResults = calculateCalories(inputs, "harris");
+      const calculatedResults = calculateCalories(inputs, "oxford");
       setResults(calculatedResults);
       setIsCalculating(false);
     }, 500);
