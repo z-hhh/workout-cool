@@ -121,12 +121,17 @@ export default {
     mit_license: "Licence MIT",
     pricing_year: "an",
     pricing_month: "mois",
+    conversion_flow_title: "Redirection en cours...",
+    conversion_flow_message: "Vous avez été connecté avec succès ! Redirection vers le checkout...",
+    redirecting_to_checkout: "Redirection vers le checkout",
   },
   bottom_navigation: {
     programs: "Programmes",
     programs_tooltip: "Parcourir les programmes",
     workouts: "Entraînements",
     workouts_tooltip: "Créer votre propre entraînement",
+    premium: "Premium",
+    premium_tooltip: "Passer à Premium",
   },
   levels: {
     BEGINNER: "Débutant",
