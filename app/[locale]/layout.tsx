@@ -63,6 +63,30 @@ export const metadata: Metadata = {
         height: SiteConfig.seo.ogImage.height,
         alt: `${SiteConfig.title} - Modern fitness platform`,
       },
+      {
+        url: `${getServerUrl()}/images/default-og-image_es.jpg`,
+        width: SiteConfig.seo.ogImage.width,
+        height: SiteConfig.seo.ogImage.height,
+        alt: `${SiteConfig.title} - Plataforma de fitness moderna`,
+      },
+      {
+        url: `${getServerUrl()}/images/default-og-image_pt.jpg`,
+        width: SiteConfig.seo.ogImage.width,
+        height: SiteConfig.seo.ogImage.height,
+        alt: `${SiteConfig.title} - Plataforma de fitness moderna`,
+      },
+      {
+        url: `${getServerUrl()}/images/default-og-image_ru.jpg`,
+        width: SiteConfig.seo.ogImage.width,
+        height: SiteConfig.seo.ogImage.height,
+        alt: `${SiteConfig.title} - Современная фитнес платформа`,
+      },
+      {
+        url: `${getServerUrl()}/images/default-og-image_zh.jpg`,
+        width: SiteConfig.seo.ogImage.width,
+        height: SiteConfig.seo.ogImage.height,
+        alt: `${SiteConfig.title} - 现代健身平台`,
+      },
     ],
     locale: "fr_FR",
     type: "website",
@@ -87,6 +111,10 @@ export const metadata: Metadata = {
     languages: {
       "fr-FR": "https://www.workout.cool/fr",
       "en-US": "https://www.workout.cool/en",
+      "es-ES": "https://www.workout.cool/es",
+      "pt-PT": "https://www.workout.cool/pt",
+      "ru-RU": "https://www.workout.cool/ru",
+      "zh-CN": "https://www.workout.cool/zh-CN",
       "x-default": "https://www.workout.cool",
     },
   },
@@ -173,7 +201,7 @@ export default async function RootLayout({ params, children }: RootLayoutProps) 
           <meta content="/android-chrome-192x192.png" name="msapplication-TileImage" />
 
           {/* PWA Manifest */}
-          <link href="/manifest.json" rel="manifest" />
+          <link href={`/${locale}/manifest.json`} rel="manifest" />
 
           {/* eslint-disable-next-line @next/next/no-page-custom-font */}
           <link as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="preload" />
@@ -181,6 +209,11 @@ export default async function RootLayout({ params, children }: RootLayoutProps) 
           {/* Alternate hreflang for i18n */}
           <link href="https://www.workout.cool/fr" hrefLang="fr" rel="alternate" />
           <link href="https://www.workout.cool/en" hrefLang="en" rel="alternate" />
+          <link href="https://www.workout.cool/es" hrefLang="es" rel="alternate" />
+          <link href="https://www.workout.cool/pt" hrefLang="pt" rel="alternate" />
+          <link href="https://www.workout.cool/ru" hrefLang="ru" rel="alternate" />
+          <link href="https://www.workout.cool/zh-CN" hrefLang="zh-CN" rel="alternate" />
+          <link href="https://www.workout.cool" hrefLang="x-default" rel="alternate" />
 
           {/* Theme color for PWA */}
           <meta content="#FF5722" name="theme-color" />
