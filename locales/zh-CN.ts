@@ -124,6 +124,8 @@ export default {
     programs_tooltip: "浏览课程",
     workouts: "锻炼",
     workouts_tooltip: "创建您的锻炼",
+    premium: "高级",
+    premium_tooltip: "成为高级",
   },
   levels: {
     BEGINNER: "初学者",
@@ -584,6 +586,7 @@ export default {
     change_language: "更改语言",
     subscription: "订阅",
     manage_subscription: "管理订阅",
+    become_premium: "成为高级",
     in_progress: "进行中",
     premium: "高级",
     free: "免费",

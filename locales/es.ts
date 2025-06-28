@@ -125,6 +125,8 @@ export default {
     programs_tooltip: "Explorar programas",
     workouts: "Entrenamientos",
     workouts_tooltip: "Crear tu propio entrenamiento",
+    premium: "Premium",
+    premium_tooltip: "Torne-se Premium",
   },
   levels: {
     BEGINNER: "Principiante",
@@ -591,6 +593,7 @@ export default {
     change_language: "Cambiar idioma",
     subscription: "Suscripción",
     manage_subscription: "Gestionar suscripción",
+    become_premium: "Torne-se Premium",
     in_progress: "En progreso",
     premium: "Premium",
     free: "Gratis",
