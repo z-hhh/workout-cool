@@ -118,7 +118,7 @@ export async function ProgramCard({ program, featured = false, size = "medium", 
               <div className="flex items-center gap-3 mt-1 text-xs opacity-75">
                 <div className="flex items-center gap-1">
                   <Users size={12} />
-                  <span>{program.totalEnrollments}</span>
+                  <span>{program.participantCount}</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <Calendar size={12} />
