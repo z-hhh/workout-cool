@@ -43,6 +43,7 @@ export async function ProgramsPage({ locale }: ProgramsPageProps) {
               alt="Mascotte WorkoutCool"
               className="object-contain h-14 w-14 sm:h-16 sm:w-16"
               height={64}
+              priority
               src="/images/emojis/WorkoutCoolHappy.png"
               width={64}
             />

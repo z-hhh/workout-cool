@@ -75,7 +75,7 @@ export async function ProgramCard({ program, featured = false, size = "medium", 
         <div className={`absolute inset-0 bg-gradient-to-br ${getGradient(program.level)}`}></div>
 
         {/* Image overlay */}
-        <Image alt={title} className="absolute inset-0 w-full h-full object-cover mix-blend-overlay" fill src={program.image} />
+        <Image alt={title} className="absolute inset-0 w-full h-full object-cover mix-blend-overlay" fill loading="lazy" src={program.image} />
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/40"></div>
@@ -100,6 +100,7 @@ export async function ProgramCard({ program, featured = false, size = "medium", 
                 alt="Emoji"
                 className={`object-contain ${size === "large" ? "w-6 h-6" : "w-5 h-5"}`}
                 height={size === "large" ? 24 : 20}
+                loading="lazy"
                 src="/images/emojis/WorkoutCoolHappy.png"
                 width={size === "large" ? 24 : 20}
               />

@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { Metadata } from "next";
 
 import { getI18n } from "locales/server";
+import { getLocalizedMetadata } from "@/shared/config/localized-metadata";
 import { ProgramDetailPage } from "@/features/programs/ui/program-detail-page";
 import { getProgramBySlug } from "@/features/programs/actions/get-program-by-slug.action";
 import { auth } from "@/features/auth/lib/better-auth";
@@ -12,19 +13,20 @@ interface ProgramDetailPageProps {
 }
 
 export async function generateMetadata({ params }: ProgramDetailPageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const t = await getI18n();
   const program = await getProgramBySlug(slug);
+  const localizedData = getLocalizedMetadata(locale);
 
   if (!program) {
     return { title: t("programs.not_found") };
   }
 
   return {
-    title: `${program.title} - ${t("programs.program")}`,
+    title: `${program.title} - ${localizedData.title}`,
     description: program.description,
     openGraph: {
-      title: `${program.title} - ${t("programs.program")}`,
+      title: `${program.title} - ${localizedData.title}`,
       description: program.description,
       images: [
         {
@@ -37,7 +39,7 @@ export async function generateMetadata({ params }: ProgramDetailPageProps): Prom
     },
     twitter: {
       card: "summary_large_image",
-      title: `${program.title} - ${t("programs.program")}`,
+      title: `${program.title} - ${localizedData.title}`,
       description: program.description,
       images: [program.image],
     },

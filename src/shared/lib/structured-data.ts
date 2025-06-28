@@ -2,6 +2,7 @@ import React from "react";
 
 import { getServerUrl } from "@/shared/lib/server-url";
 import { SiteConfig } from "@/shared/config/site-config";
+import { getLocalizedMetadata } from "@/shared/config/localized-metadata";
 
 export interface StructuredDataProps {
   type: "WebSite" | "WebApplication" | "Organization" | "SoftwareApplication" | "Article";
@@ -17,7 +18,7 @@ export interface StructuredDataProps {
 
 export function generateStructuredData({
   type,
-  locale = "fr",
+  locale = "en",
   title,
   description,
   url,
@@ -27,15 +28,15 @@ export function generateStructuredData({
   author,
 }: StructuredDataProps) {
   const baseUrl = getServerUrl();
-  const isEnglish = locale === "en";
+  const localizedData = getLocalizedMetadata(locale);
 
   const baseStructuredData = {
     "@context": "https://schema.org",
     "@type": type,
     url: url || baseUrl,
-    name: title || SiteConfig.title,
-    description: description || SiteConfig.description,
-    inLanguage: locale === "en" ? "en-US" : "fr-FR",
+    name: title || localizedData.title,
+    description: description || localizedData.description,
+    inLanguage: locale === "en" ? "en-US" : locale === "es" ? "es-ES" : locale === "pt" ? "pt-PT" : locale === "ru" ? "ru-RU" : locale === "zh-CN" ? "zh-CN" : "fr-FR",
     publisher: {
       "@type": "Organization",
       name: SiteConfig.company.name,
@@ -76,13 +77,17 @@ export function generateStructuredData({
           priceCurrency: "USD",
           availability: "https://schema.org/InStock",
         },
-        featureList: [
-          isEnglish ? "Personalized workout builder" : "Créateur d'entraînement personnalisé",
-          isEnglish ? "Comprehensive exercise database" : "Base de données d'exercices complète",
-          isEnglish ? "Progress tracking" : "Suivi des progrès",
-          isEnglish ? "Muscle group targeting" : "Ciblage des groupes musculaires",
-          isEnglish ? "Equipment-based filtering" : "Filtrage par équipement",
-        ],
+        featureList: locale === "en"
+          ? ["Personalized workout builder", "Comprehensive exercise database", "Progress tracking", "Muscle group targeting", "Equipment-based filtering"]
+          : locale === "es"
+          ? ["Constructor de entrenamientos personalizado", "Base de datos completa de ejercicios", "Seguimiento de progreso", "Orientación a grupos musculares", "Filtrado basado en equipos"]
+          : locale === "pt"
+          ? ["Construtor de treinos personalizado", "Base de dados abrangente de exercícios", "Acompanhamento de progresso", "Segmentação de grupos musculares", "Filtragem baseada em equipamentos"]
+          : locale === "ru"
+          ? ["Персонализированный конструктор тренировок", "Полная база данных упражнений", "Отслеживание прогресса", "Нацеливание на группы мышц", "Фильтрация по оборудованию"]
+          : locale === "zh-CN"
+          ? ["个性化锻炼计划构建器", "全面的运动数据库", "进度跟踪", "肌肉群目标定位", "基于设备的筛选"]
+          : ["Créateur d'entraînement personnalisé", "Base de données d'exercices complète", "Suivi des progrès", "Ciblage des groupes musculaires", "Filtrage par équipement"],
       };
 
     case "Organization":
@@ -107,13 +112,11 @@ export function generateStructuredData({
           "@type": "ContactPoint",
           telephone: "+33-1-00-00-00-00",
           contactType: "customer service",
-          availableLanguage: ["French", "English"],
+          availableLanguage: ["French", "English", "Spanish", "Portuguese", "Russian", "Chinese"],
         },
         sameAs: [SiteConfig.maker.twitter],
         foundingDate: "2024",
-        description: isEnglish
-          ? "Modern fitness coaching platform helping users create personalized workout routines"
-          : "Plateforme moderne de coaching fitness aidant les utilisateurs à créer des routines d'entraînement personnalisées",
+        description: localizedData.description,
       };
 
     case "SoftwareApplication":
@@ -124,8 +127,16 @@ export function generateStructuredData({
         operatingSystem: "Web",
         downloadUrl: baseUrl,
         softwareVersion: "1.2.1",
-        releaseNotes: isEnglish
+        releaseNotes: locale === "en"
           ? "Latest update includes improved exercise database and better user experience"
+          : locale === "es"
+          ? "La última actualización incluye una base de datos de ejercicios mejorada y una mejor experiencia de usuario"
+          : locale === "pt"
+          ? "A atualização mais recente inclui base de dados de exercícios melhorada e melhor experiência do usuário"
+          : locale === "ru"
+          ? "Последнее обновление включает улучшенную базу данных упражнений и лучший пользовательский опыт"
+          : locale === "zh-CN"
+          ? "最新更新包括改进的运动数据库和更好的用户体验"
           : "La dernière mise à jour inclut une base de données d'exercices améliorée et une meilleure expérience utilisateur",
         screenshot: image || `${baseUrl}/images/default-og-image_${locale}.jpg`,
         aggregateRating: {
