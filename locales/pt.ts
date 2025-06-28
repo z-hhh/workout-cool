@@ -1,5 +1,6 @@
 export default {
   programs: {
+    available_programs: "Programas disponíveis",
     exercises_in_session: "Exercícios na sessão",
     start_session: "Iniciar sessão",
     starting_session: "Iniciando...",
@@ -119,6 +120,9 @@ export default {
     mit_license: "Licença MIT",
     pricing_year: "ano",
     pricing_month: "mês",
+  },
+  breadcrumbs: {
+    home: "Início",
   },
   bottom_navigation: {
     programs: "Programas",

@@ -1,5 +1,6 @@
 export default {
   programs: {
+    available_programs: "Доступные программы",
     exercises_in_session: "Упражнение в сессии",
     start_session: "Начать сессию",
     starting_session: "Запуск...",
@@ -357,7 +358,11 @@ export default {
         description: "Упражнения на скамье и поддержка",
       },
     },
+    breadcrumbs: {
+      home: "Главная",
+    },
     navigation: {
+      home: "Главная",
       previous: "Назад",
       continue: "Продолжить",
       complete: "Завершить",

@@ -1,5 +1,6 @@
 export default {
   programs: {
+    available_programs: "Available programs",
     exercises_in_session: "Exercises in session",
     start_session: "Start session",
     starting_session: "Starting...",
@@ -125,6 +126,9 @@ export default {
     conversion_flow_title: "Redirecting...",
     conversion_flow_message: "Successfully signed in! Redirecting to checkout...",
     redirecting_to_checkout: "Redirecting to checkout",
+  },
+  breadcrumbs: {
+    home: "Home",
   },
   bottom_navigation: {
     programs: "Programs",

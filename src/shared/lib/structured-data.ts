@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable no-case-declarations */
 import React from "react";
 
 import { getServerUrl } from "@/shared/lib/server-url";
@@ -5,7 +7,7 @@ import { SiteConfig } from "@/shared/config/site-config";
 import { getLocalizedMetadata } from "@/shared/config/localized-metadata";
 
 export interface StructuredDataProps {
-  type: "WebSite" | "WebApplication" | "Organization" | "SoftwareApplication" | "Article";
+  type: "WebSite" | "WebApplication" | "Organization" | "SoftwareApplication" | "Article" | "Course";
   locale?: string;
   title?: string;
   description?: string;
@@ -14,6 +16,24 @@ export interface StructuredDataProps {
   datePublished?: string;
   dateModified?: string;
   author?: string;
+  // Course-specific fields
+  courseData?: {
+    id: string;
+    level: string;
+    category: string;
+    durationWeeks: number;
+    sessionsPerWeek: number;
+    sessionDurationMin: number;
+    equipment: string[];
+    isPremium: boolean;
+    participantCount: number;
+    totalSessions: number;
+    totalExercises: number;
+    coaches: Array<{
+      name: string;
+      image: string;
+    }>;
+  };
 }
 
 export function generateStructuredData({
@@ -26,6 +46,7 @@ export function generateStructuredData({
   datePublished,
   dateModified,
   author,
+  courseData,
 }: StructuredDataProps) {
   const baseUrl = getServerUrl();
   const localizedData = getLocalizedMetadata(locale);
@@ -36,7 +57,18 @@ export function generateStructuredData({
     url: url || baseUrl,
     name: title || localizedData.title,
     description: description || localizedData.description,
-    inLanguage: locale === "en" ? "en-US" : locale === "es" ? "es-ES" : locale === "pt" ? "pt-PT" : locale === "ru" ? "ru-RU" : locale === "zh-CN" ? "zh-CN" : "fr-FR",
+    inLanguage:
+      locale === "en"
+        ? "en-US"
+        : locale === "es"
+          ? "es-ES"
+          : locale === "pt"
+            ? "pt-PT"
+            : locale === "ru"
+              ? "ru-RU"
+              : locale === "zh-CN"
+                ? "zh-CN"
+                : "fr-FR",
     publisher: {
       "@type": "Organization",
       name: SiteConfig.company.name,
@@ -77,17 +109,48 @@ export function generateStructuredData({
           priceCurrency: "USD",
           availability: "https://schema.org/InStock",
         },
-        featureList: locale === "en"
-          ? ["Personalized workout builder", "Comprehensive exercise database", "Progress tracking", "Muscle group targeting", "Equipment-based filtering"]
-          : locale === "es"
-          ? ["Constructor de entrenamientos personalizado", "Base de datos completa de ejercicios", "Seguimiento de progreso", "Orientación a grupos musculares", "Filtrado basado en equipos"]
-          : locale === "pt"
-          ? ["Construtor de treinos personalizado", "Base de dados abrangente de exercícios", "Acompanhamento de progresso", "Segmentação de grupos musculares", "Filtragem baseada em equipamentos"]
-          : locale === "ru"
-          ? ["Персонализированный конструктор тренировок", "Полная база данных упражнений", "Отслеживание прогресса", "Нацеливание на группы мышц", "Фильтрация по оборудованию"]
-          : locale === "zh-CN"
-          ? ["个性化锻炼计划构建器", "全面的运动数据库", "进度跟踪", "肌肉群目标定位", "基于设备的筛选"]
-          : ["Créateur d'entraînement personnalisé", "Base de données d'exercices complète", "Suivi des progrès", "Ciblage des groupes musculaires", "Filtrage par équipement"],
+        featureList:
+          locale === "en"
+            ? [
+                "Personalized workout builder",
+                "Comprehensive exercise database",
+                "Progress tracking",
+                "Muscle group targeting",
+                "Equipment-based filtering",
+              ]
+            : locale === "es"
+              ? [
+                  "Constructor de entrenamientos personalizado",
+                  "Base de datos completa de ejercicios",
+                  "Seguimiento de progreso",
+                  "Orientación a grupos musculares",
+                  "Filtrado basado en equipos",
+                ]
+              : locale === "pt"
+                ? [
+                    "Construtor de treinos personalizado",
+                    "Base de dados abrangente de exercícios",
+                    "Acompanhamento de progresso",
+                    "Segmentação de grupos musculares",
+                    "Filtragem baseada em equipamentos",
+                  ]
+                : locale === "ru"
+                  ? [
+                      "Персонализированный конструктор тренировок",
+                      "Полная база данных упражнений",
+                      "Отслеживание прогресса",
+                      "Нацеливание на группы мышц",
+                      "Фильтрация по оборудованию",
+                    ]
+                  : locale === "zh-CN"
+                    ? ["个性化锻炼计划构建器", "全面的运动数据库", "进度跟踪", "肌肉群目标定位", "基于设备的筛选"]
+                    : [
+                        "Créateur d'entraînement personnalisé",
+                        "Base de données d'exercices complète",
+                        "Suivi des progrès",
+                        "Ciblage des groupes musculaires",
+                        "Filtrage par équipement",
+                      ],
       };
 
     case "Organization":
@@ -127,17 +190,18 @@ export function generateStructuredData({
         operatingSystem: "Web",
         downloadUrl: baseUrl,
         softwareVersion: "1.2.1",
-        releaseNotes: locale === "en"
-          ? "Latest update includes improved exercise database and better user experience"
-          : locale === "es"
-          ? "La última actualización incluye una base de datos de ejercicios mejorada y una mejor experiencia de usuario"
-          : locale === "pt"
-          ? "A atualização mais recente inclui base de dados de exercícios melhorada e melhor experiência do usuário"
-          : locale === "ru"
-          ? "Последнее обновление включает улучшенную базу данных упражнений и лучший пользовательский опыт"
-          : locale === "zh-CN"
-          ? "最新更新包括改进的运动数据库和更好的用户体验"
-          : "La dernière mise à jour inclut une base de données d'exercices améliorée et une meilleure expérience utilisateur",
+        releaseNotes:
+          locale === "en"
+            ? "Latest update includes improved exercise database and better user experience"
+            : locale === "es"
+              ? "La última actualización incluye una base de datos de ejercicios mejorada y una mejor experiencia de usuario"
+              : locale === "pt"
+                ? "A atualização mais recente inclui base de dados de exercícios melhorada e melhor experiência do usuário"
+                : locale === "ru"
+                  ? "Последнее обновление включает улучшенную базу данных упражнений и лучший пользовательский опыт"
+                  : locale === "zh-CN"
+                    ? "最新更新包括改进的运动数据库和更好的用户体验"
+                    : "La dernière mise à jour inclut une base de données d'exercices améliorée et une meilleure expérience utilisateur",
         screenshot: image || `${baseUrl}/images/default-og-image_${locale}.jpg`,
         aggregateRating: {
           "@type": "AggregateRating",
@@ -175,6 +239,116 @@ export function generateStructuredData({
           "@id": url,
         },
       };
+
+    case "Course":
+      if (!courseData) return baseStructuredData;
+
+      const difficultyLevel =
+        courseData.level === "BEGINNER" ? "Beginner" : courseData.level === "INTERMEDIATE" ? "Intermediate" : "Advanced";
+
+      const courseSchema = {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        name: title || baseStructuredData.name,
+        description: description || baseStructuredData.description,
+        url: url || baseUrl,
+        image: image || `${baseUrl}/images/default-og-image_${locale === "zh-CN" ? "zh" : locale}.jpg`,
+        provider: {
+          "@type": "Organization",
+          name: SiteConfig.company.name,
+          url: baseUrl,
+        },
+        educationalLevel: difficultyLevel,
+        teaches:
+          locale === "en"
+            ? "Fitness and workout techniques"
+            : locale === "es"
+              ? "Técnicas de fitness y entrenamiento"
+              : locale === "pt"
+                ? "Técnicas de fitness e treino"
+                : locale === "ru"
+                  ? "Фитнес и техники тренировок"
+                  : locale === "zh-CN"
+                    ? "健身和锻炼技巧"
+                    : "Techniques de fitness et d'entraînement",
+        courseCode: courseData.id,
+        hasCourseInstance: {
+          "@type": "CourseInstance",
+          courseMode: "Online",
+          courseSchedule: {
+            "@type": "Schedule",
+            duration: `P${courseData.durationWeeks}W`,
+            repeatFrequency: "P1W",
+            repeatCount: courseData.durationWeeks,
+          },
+          instructor: courseData.coaches.map((coach) => ({
+            "@type": "Person",
+            name: coach.name,
+            image: coach.image,
+          })),
+        },
+        totalTime: `PT${courseData.sessionDurationMin * courseData.totalSessions}M`,
+        numberOfCredits: courseData.totalExercises,
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.7",
+          ratingCount: Math.max(courseData.participantCount, 10),
+          bestRating: "5",
+          worstRating: "1",
+        },
+        offers: {
+          "@type": "Offer",
+          price: courseData.isPremium ? "7.90" : "0",
+          priceCurrency: "EUR",
+          availability: "https://schema.org/InStock",
+          category: courseData.isPremium ? "Premium" : "Free",
+        },
+        keywords: [courseData.category, difficultyLevel, "fitness", "workout", "training", ...courseData.equipment].join(", "),
+        inLanguage:
+          locale === "en"
+            ? "en-US"
+            : locale === "es"
+              ? "es-ES"
+              : locale === "pt"
+                ? "pt-PT"
+                : locale === "ru"
+                  ? "ru-RU"
+                  : locale === "zh-CN"
+                    ? "zh-CN"
+                    : "fr-FR",
+        isAccessibleForFree: !courseData.isPremium,
+        syllabusSections: [
+          {
+            "@type": "Syllabus",
+            name:
+              locale === "en"
+                ? `${courseData.totalSessions} workout sessions`
+                : locale === "es"
+                  ? `${courseData.totalSessions} sesiones de entrenamiento`
+                  : locale === "pt"
+                    ? `${courseData.totalSessions} sessões de treino`
+                    : locale === "ru"
+                      ? `${courseData.totalSessions} тренировочных сессий`
+                      : locale === "zh-CN"
+                        ? `${courseData.totalSessions} 训练课程`
+                        : `${courseData.totalSessions} séances d'entraînement`,
+            description:
+              locale === "en"
+                ? `Complete ${courseData.durationWeeks}-week program with ${courseData.sessionsPerWeek} sessions per week`
+                : locale === "es"
+                  ? `Programa completo de ${courseData.durationWeeks} semanas con ${courseData.sessionsPerWeek} sesiones por semana`
+                  : locale === "pt"
+                    ? `Programa completo de ${courseData.durationWeeks} semanas com ${courseData.sessionsPerWeek} sessões por semana`
+                    : locale === "ru"
+                      ? `Полная программа на ${courseData.durationWeeks} недель с ${courseData.sessionsPerWeek} сессиями в неделю`
+                      : locale === "zh-CN"
+                        ? `${courseData.durationWeeks}周完整计划，每周${courseData.sessionsPerWeek}次训练`
+                        : `Programme complet de ${courseData.durationWeeks} semaines avec ${courseData.sessionsPerWeek} séances par semaine`,
+          },
+        ],
+      };
+
+      return courseSchema;
 
     default:
       return baseStructuredData;
