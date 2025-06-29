@@ -36,9 +36,8 @@ export class StripeProvider implements PaymentProvider {
       const customer = await this.getOrCreateCustomer(userId);
 
       const session = await this.stripe.checkout.sessions.create({
-        // @ts-expect-error - mode is not in the type
         mode: "subscription",
-        payment_method_types: ["card", "paypal", "apple_pay", "google_pay", "revolut_pay", "samsung_pay", "link", "klarna"],
+        // payment_method_types: ["card", "paypal", "apple_pay", "google_pay", "revolut_pay", "samsung_pay", "link", "klarna"],
         customer: customer.id,
         line_items: [
           {
