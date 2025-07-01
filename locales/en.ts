@@ -171,6 +171,7 @@ export default {
         yearly_price_note: "/month",
         features: [
           "...all of the free plan",
+          "No ads",
           "Unlimited history (vs 6 months free)",
           "Progress tracking with advanced statistics (volume, progression, PR)",
           "Pre-designed training programs",

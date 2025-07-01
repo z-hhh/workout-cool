@@ -173,6 +173,7 @@ export default {
         yearly_price_note: "/mois",
         features: [
           "...tout du plan Gratuit",
+          "Pas de publicités",
           "Historique illimité (vs 6 mois gratuit)",
           "Suivi des progrès avec statistiques avancées (volume, progression, PR)",
           "Programmes d'entraînement pré-conçus",

@@ -164,6 +164,7 @@ export default {
         yearly_price_note: "/mes",
         features: [
           "...todo del plan Gratuit",
+          "Sin publicidad",
           "Historial ilimitado (vs 6 meses gratuito)",
           "Seguimiento de progreso con estadísticas avanzadas (volumen, progresión, PR)",
           "Programas de entrenamiento prediseñados",
