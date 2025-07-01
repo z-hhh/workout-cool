@@ -89,6 +89,9 @@ export default {
     premium_required_title: "Premium Requis",
     premium_required_subtitle: "Ceci est un accès premium. Passez Premium pour accéder à tout le contenu premium.",
     premium_required_button: "Passer Premium",
+    already_premium: "Vous profitez de Workout.cool Premium",
+    no_ads: "Sans publicités",
+    upgrade: "Passer Premium",
 
     // Checkout
     checkout: {
@@ -780,9 +783,9 @@ export default {
     },
   },
 
-  // Donation Alert
+  // Premium Upsell Alert
   donation_alert: {
-    title: "Gardez Workout.cool gratuit. Soutenez-nous via",
+    title: "Débloquez des fonctionnalités avancées avec Workout.cool Premium",
     or: "ou",
   },
 

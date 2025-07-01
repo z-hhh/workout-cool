@@ -87,6 +87,9 @@ export default {
     premium_required_title: "Premium Requerido",
     premium_required_subtitle: "Este es un acceso premium. Actualiza a Premium para acceder a todo el contenido premium.",
     premium_required_button: "Actualizar a Premium",
+    already_premium: "Estás disfrutando de Workout.cool Premium",
+    no_ads: "Sin anuncios",
+    upgrade: "Actualizar",
 
     pricing: {
       month: "mes",
@@ -492,9 +495,9 @@ export default {
     },
   },
 
-  // Donation Alert
+  // Premium Upsell Alert
   donation_alert: {
-    title: "Mantén Workout.cool gratis. Apóyanos a través de",
+    title: "Desbloquea funciones avanzadas con Workout.cool Premium",
     or: "o",
   },
 

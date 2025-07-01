@@ -12,7 +12,7 @@ import { cn } from "@/shared/lib/utils";
 import { useWorkoutSession } from "@/features/workout-session/model/use-workout-session";
 import { useSyncWorkoutSessions } from "@/features/workout-session/model/use-sync-workout-sessions";
 import { ExerciseVideoModal } from "@/features/workout-builder/ui/exercise-video-modal";
-import { DonationAlert } from "@/components/ui/donation-alert";
+import { PremiumUpsellAlert } from "@/components/ui/premium-upsell-alert";
 import { Button } from "@/components/ui/button";
 import { HorizontalBottomBanner } from "@/components/ads";
 
@@ -122,7 +122,7 @@ export function WorkoutSessionSets({
   return (
     <div className="w-full max-w-3xl mx-auto pb-8 px-3 sm:px-6">
       <div className="mb-6">
-        <DonationAlert />
+        <PremiumUpsellAlert />
       </div>
       <ol className="relative border-l-2 ml-2 border-slate-200 dark:border-slate-700">
         {session.exercises.map((ex, idx) => {

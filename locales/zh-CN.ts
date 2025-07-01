@@ -86,6 +86,9 @@ export default {
     premium_required_title: "需要高级",
     premium_required_subtitle: "这是一个高级访问。升级以访问所有高级内容。",
     premium_required_button: "升级到高级",
+    already_premium: "您正在享受 Workout.cool Premium",
+    no_ads: "无广告",
+    upgrade: "升级",
 
     // Checkout
     checkout: {
@@ -489,9 +492,9 @@ export default {
     },
   },
 
-  // Donation Alert
+  // Premium Upsell Alert
   donation_alert: {
-    title: "保持 Workout.cool 免费。支持我们通过",
+    title: "使用 Workout.cool Premium 解锁高级功能",
     or: "或",
   },
 

@@ -88,6 +88,9 @@ export default {
     premium_required_title: "Требуется Премиум",
     premium_required_subtitle: "Это премиум-доступ. Обновитесь до Премиум для доступа ко всему премиум-контенту.",
     premium_required_button: "Обновить до Премиум",
+    already_premium: "Вы наслаждаетесь Workout.cool Premium",
+    no_ads: "Без рекламы",
+    upgrade: "Обновить",
 
     // Hero Section
     pricing: {
@@ -768,9 +771,9 @@ export default {
     },
   },
 
-  // Donation Alert
+  // Premium Upsell Alert
   donation_alert: {
-    title: "Поддержите Workout.cool. Поддержите нас через",
+    title: "Разблокируйте расширенные функции с Workout.cool Premium",
     or: "или",
   },
 
