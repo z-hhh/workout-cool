@@ -201,7 +201,7 @@ export function EquipmentSelection({ onToggleEquipment, selectedEquipment }: Equ
           </div>
         ))}
       </div>
-      <HorizontalBottomBanner />
+      <HorizontalBottomBanner adSlot="9024074746" />
       {/* <ActionBar onClearEquipment={onClearEquipment} selectedCount={selectedEquipment.length} /> */}
     </div>
   );

@@ -8,7 +8,7 @@ export function HorizontalTopBanner() {
 
   return (
     <AdWrapper>
-      <div className="w-full max-w-full" style={{ minHeight: "90px", maxHeight: "100px", width: "100%" }}>
+      <div className="w-full max-w-full" style={{ minHeight: "auto !important", maxHeight: "100px", width: "100%" }}>
         <div className="px-4 py-2">
           {isDevelopment ? (
             <AdPlaceholder height="90px" type="Ad Banner (Top)" width="100%" />

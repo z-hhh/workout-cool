@@ -14,6 +14,7 @@ import { useSyncWorkoutSessions } from "@/features/workout-session/model/use-syn
 import { ExerciseVideoModal } from "@/features/workout-builder/ui/exercise-video-modal";
 import { DonationAlert } from "@/components/ui/donation-alert";
 import { Button } from "@/components/ui/button";
+import { HorizontalBottomBanner } from "@/components/ads";
 
 import { WorkoutSessionSet } from "./workout-session-set";
 
@@ -253,6 +254,8 @@ export function WorkoutSessionSets({
           </Button>
         </div>
       )}
+
+      <HorizontalBottomBanner adSlot="4412259353" />
     </div>
   );
 }
