@@ -815,6 +815,10 @@ export default {
     threads: "Threads",
   },
 
+  breadcrumbs: {
+    home: "Главная",
+  },
+
   // Workout Builder
   workout_builder: {
     confirm_delete: "Вы уверены, что хотите удалить эту тренировочную сессию?",
@@ -896,9 +900,6 @@ export default {
         label: "Скамья",
         description: "Упражнения на скамье и поддержка",
       },
-    },
-    breadcrumbs: {
-      home: "Главная",
     },
     navigation: {
       home: "Главная",

@@ -3,6 +3,7 @@ import React from "react";
 import { getServerUrl } from "@/shared/lib/server-url";
 import { SiteConfig } from "@/shared/config/site-config";
 import { WorkoutStepper } from "@/features/workout-builder";
+import { HorizontalTopBanner } from "@/components/ads";
 
 import type { Metadata } from "next";
 
@@ -51,6 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function HomePage() {
   return (
     <div className="bg-background text-foreground relative flex  flex-col h-full">
+      <HorizontalTopBanner />
       <WorkoutStepper />
     </div>
   );

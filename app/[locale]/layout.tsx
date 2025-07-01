@@ -14,7 +14,7 @@ import { Version } from "@/components/version";
 import { TailwindIndicator } from "@/components/utils/TailwindIndicator";
 import { NextTopLoader } from "@/components/ui/next-top-loader";
 import { ServiceWorkerRegistration } from "@/components/pwa/ServiceWorkerRegistration";
-import { VerticalLeftBanner, VerticalRightBanner, HorizontalTopBanner, HorizontalBottomBanner } from "@/components/ads";
+import { VerticalLeftBanner, VerticalRightBanner } from "@/components/ads";
 
 import type { ReactElement } from "react";
 import type { Metadata } from "next";
@@ -302,13 +302,11 @@ export default async function RootLayout({ params, children }: RootLayoutProps) 
             <NextTopLoader color="#FF5722" delay={100} showSpinner={false} />
 
             <div className="flex flex-col w-full">
-              <HorizontalTopBanner />
               <div className="flex justify-center items-start gap-4 w-full">
                 <VerticalLeftBanner />
                 {children}
                 <VerticalRightBanner />
               </div>
-              <HorizontalBottomBanner />
             </div>
             <Version />
 
