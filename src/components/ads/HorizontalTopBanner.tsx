@@ -6,8 +6,15 @@ export function HorizontalTopBanner() {
 
   return (
     <AdWrapper>
-      <div className="w-full mb-4">
-        <GoogleAdSense adClient="ca-pub-3437447245301146" adSlot="7555914556" style={{ display: "block" }} />
+      <div className="w-full max-w-full overflow-hidden" style={{ minHeight: "90px", maxHeight: "250px", width: "100%" }}>
+        <div className="px-4 py-2">
+          <GoogleAdSense
+            adClient="ca-pub-3437447245301146"
+            adFormat="horizontal"
+            adSlot="7555914556"
+            style={{ display: "block", minHeight: "50px", maxHeight: "250px", width: "100%" }}
+          />
+        </div>
       </div>
     </AdWrapper>
   );

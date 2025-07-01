@@ -34,13 +34,15 @@ export function GoogleAdSense({
   }, []);
 
   return (
-    <ins
-      className={`adsbygoogle ${className}`}
-      data-ad-client={adClient}
-      data-ad-format={adFormat}
-      data-ad-slot={adSlot}
-      data-full-width-responsive={fullWidthResponsive}
-      style={style}
-    />
+    <div className="overflow-hidden" style={{ maxWidth: "100%" }}>
+      <ins
+        className={`adsbygoogle ${className}`}
+        data-ad-client={adClient}
+        data-ad-format={adFormat}
+        data-ad-slot={adSlot}
+        data-full-width-responsive={fullWidthResponsive}
+        style={style}
+      />
+    </div>
   );
 }
