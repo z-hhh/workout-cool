@@ -14,6 +14,7 @@ import { Version } from "@/components/version";
 import { TailwindIndicator } from "@/components/utils/TailwindIndicator";
 import { NextTopLoader } from "@/components/ui/next-top-loader";
 import { ServiceWorkerRegistration } from "@/components/pwa/ServiceWorkerRegistration";
+import { VerticalAdBanner } from "@/components/ads/VerticalAdBanner";
 
 import type { ReactElement } from "react";
 import type { Metadata } from "next";
@@ -245,6 +246,12 @@ export default async function RootLayout({ params, children }: RootLayoutProps) 
           <meta content="width=device-width, initial-scale=1, maximum-scale=1 viewport-fit=cover" name="viewport" />
           <meta content="ca-pub-3437447245301146" name="google-adsense-account" />
 
+          <script
+            async
+            crossOrigin="anonymous"
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3437447245301146"
+          />
+
           {/* PWA Meta Tags */}
           <meta content="yes" name="apple-mobile-web-app-capable" />
           <meta content="default" name="apple-mobile-web-app-status-bar-style" />
@@ -294,7 +301,11 @@ export default async function RootLayout({ params, children }: RootLayoutProps) 
             <ThemeSynchronizer />
             <NextTopLoader color="#FF5722" delay={100} showSpinner={false} />
 
-            {children}
+            <div className="flex justify-center items-start gap-4 w-full">
+              <VerticalAdBanner />
+              {children}
+              <VerticalAdBanner />
+            </div>
             <Version />
 
             <TailwindIndicator />
