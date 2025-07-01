@@ -2,7 +2,7 @@ import { GoogleAdSense } from "./GoogleAdSense";
 import { AdWrapper } from "./AdWrapper";
 
 export function HorizontalBottomBanner({ adSlot }: { adSlot: string }) {
-  const isDevelopment = process.env.NODE_ENV === "development";
+  const _isDevelopment = process.env.NODE_ENV === "development";
 
   return (
     <AdWrapper>

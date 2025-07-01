@@ -3,7 +3,7 @@ import { AdPlaceholder } from "@/components/ads/AdPlaceholder";
 import { GoogleAdSense } from "./GoogleAdSense";
 import { AdWrapper } from "./AdWrapper";
 
-export function HorizontalTopBanner() {
+export function HorizontalTopBanner({ adSlot }: { adSlot: string }) {
   const isDevelopment = process.env.NODE_ENV === "development";
 
   return (
@@ -16,7 +16,7 @@ export function HorizontalTopBanner() {
             <GoogleAdSense
               adClient="ca-pub-3437447245301146"
               adFormat="horizontal"
-              adSlot="7555914556"
+              adSlot={adSlot}
               style={{ display: "block", minHeight: "50px", maxHeight: "90px", width: "100%" }}
             />
           )}
