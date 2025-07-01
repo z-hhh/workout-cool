@@ -179,6 +179,7 @@ export function WorkoutStepper() {
   if (isWorkoutActive && session) {
     return (
       <div className="w-full max-w-6xl mx-auto">
+        <HorizontalTopBanner adSlot="2533035623" />
         {!showCongrats && <WorkoutSessionHeader onQuitWorkout={quitWorkout} />}
         <WorkoutSessionSets isWorkoutActive={isWorkoutActive} onCongrats={handleCongrats} showCongrats={showCongrats} />
       </div>

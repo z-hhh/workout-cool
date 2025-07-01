@@ -77,55 +77,55 @@ async function seedMultiRegionPlans() {
 
       // Plan mensuel
       const monthlyPlanId = `premium-monthly-${pricing.region.toLowerCase()}`;
-      const monthlyPlan = await prisma.subscriptionPlan.upsert({
-        where: { id: monthlyPlanId },
-        update: {
-          priceMonthly: pricing.monthlyPrice,
-          currency: pricing.currency,
-        },
-        create: {
-          id: monthlyPlanId,
-          priceMonthly: pricing.monthlyPrice,
-          priceYearly: 0,
-          currency: pricing.currency,
-          interval: "month",
-          isActive: true,
-          availableRegions: [pricing.region],
-        },
-      });
+      // const monthlyPlan = await prisma.subscriptionPlan.upsert({
+      //   where: { id: monthlyPlanId },
+      //   update: {
+      //     priceMonthly: pricing.monthlyPrice,
+      //     currency: pricing.currency,
+      //   },
+      //   create: {
+      //     id: monthlyPlanId,
+      //     priceMonthly: pricing.monthlyPrice,
+      //     priceYearly: 0,
+      //     currency: pricing.currency,
+      //     interval: "month",
+      //     isActive: true,
+      //     availableRegions: [pricing.region],
+      //   },
+      // });
 
       // Plan annuel
       const yearlyPlanId = `premium-yearly-${pricing.region.toLowerCase()}`;
-      const yearlyPlan = await prisma.subscriptionPlan.upsert({
-        where: { id: yearlyPlanId },
-        update: {
-          priceYearly: pricing.yearlyPrice,
-          currency: pricing.currency,
-        },
-        create: {
-          id: yearlyPlanId,
-          priceMonthly: 0,
-          priceYearly: pricing.yearlyPrice,
-          currency: pricing.currency,
-          interval: "year",
-          isActive: true,
-          availableRegions: [pricing.region],
-        },
-      });
+      // const yearlyPlan = await prisma.subscriptionPlan.upsert({
+      //   where: { id: yearlyPlanId },
+      //   update: {
+      //     priceYearly: pricing.yearlyPrice,
+      //     currency: pricing.currency,
+      //   },
+      //   create: {
+      //     id: yearlyPlanId,
+      //     priceMonthly: 0,
+      //     priceYearly: pricing.yearlyPrice,
+      //     currency: pricing.currency,
+      //     interval: "year",
+      //     isActive: true,
+      //     availableRegions: [pricing.region],
+      //   },
+      // });
 
       // Créer les mappings Stripe si les IDs existent
       if (pricing.stripeMonthlyPriceId) {
         await prisma.planProviderMapping.upsert({
           where: {
             planId_provider_region: {
-              planId: monthlyPlan.id,
+              planId: monthlyPlanId,
               provider: PaymentProcessor.STRIPE,
               region: pricing.region,
             },
           },
           update: {},
           create: {
-            planId: monthlyPlan.id,
+            planId: monthlyPlanId,
             provider: PaymentProcessor.STRIPE,
             externalId: pricing.stripeMonthlyPriceId,
             region: pricing.region,
@@ -138,14 +138,14 @@ async function seedMultiRegionPlans() {
         await prisma.planProviderMapping.upsert({
           where: {
             planId_provider_region: {
-              planId: yearlyPlan.id,
+              planId: yearlyPlanId,
               provider: PaymentProcessor.STRIPE,
               region: pricing.region,
             },
           },
           update: {},
           create: {
-            planId: yearlyPlan.id,
+            planId: yearlyPlanId,
             provider: PaymentProcessor.STRIPE,
             externalId: pricing.stripeYearlyPriceId,
             region: pricing.region,
