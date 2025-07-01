@@ -14,7 +14,7 @@ import { Version } from "@/components/version";
 import { TailwindIndicator } from "@/components/utils/TailwindIndicator";
 import { NextTopLoader } from "@/components/ui/next-top-loader";
 import { ServiceWorkerRegistration } from "@/components/pwa/ServiceWorkerRegistration";
-import { VerticalLeftBanner, VerticalRightBanner } from "@/components/ads";
+import { VerticalLeftBanner, VerticalRightBanner, AdSenseAutoAds, AdBlockerForPremium } from "@/components/ads";
 
 import type { ReactElement } from "react";
 import type { Metadata } from "next";
@@ -299,6 +299,8 @@ export default async function RootLayout({ params, children }: RootLayoutProps) 
             <ServiceWorkerRegistration />
             <WorkoutSessionsSynchronizer />
             <ThemeSynchronizer />
+            <AdSenseAutoAds />
+            <AdBlockerForPremium />
             <NextTopLoader color="#FF5722" delay={100} showSpinner={false} />
 
             <div className="flex flex-col w-full">
