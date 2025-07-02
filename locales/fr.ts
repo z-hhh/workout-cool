@@ -751,6 +751,11 @@ export default {
     title: "Nouveautés",
     release_notes: "Notes",
     notes: {
+      note_2025_07_02: {
+        title: "🛠️ Auto-hébergement, Russe & Nouveaux Outils",
+        content:
+          "Amélioration de l'<strong>auto-hébergement</strong>, ajout du support <strong>russe</strong>, et introduction de nouveaux <em>outils fitness</em> dont un calculateur de calories. 🚀",
+      },
       note_2025_06_23: {
         title: "🇵🇹 Support Portugais & Bannière de Don",
         content:

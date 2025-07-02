@@ -744,6 +744,11 @@ export default {
     title: "What's New",
     release_notes: "Release Notes",
     notes: {
+      note_2025_07_02: {
+        title: "🛠️ Self-Hosting, Russian & New Tools",
+        content:
+          "Improved <strong>self-hosting</strong> capabilities, added <strong>Russian language</strong> support, and introduced new <em>fitness tools</em> including a calorie calculator. 🚀",
+      },
       note_2025_06_23: {
         title: "🇵🇹 Portuguese Support & Donation Banner",
         content:

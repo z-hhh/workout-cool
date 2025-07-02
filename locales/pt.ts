@@ -740,6 +740,11 @@ export default {
     title: "Novidades",
     release_notes: "Notas de Lançamento",
     notes: {
+      note_2025_07_02: {
+        title: "🛠️ Auto-hospedagem, Russo e Novas Ferramentas",
+        content:
+          "Melhoria da <strong>auto-hospedagem</strong>, adicionado suporte para <strong>russo</strong>, e introdução de novas <em>ferramentas de fitness</em> incluindo uma calculadora de calorias. 🚀",
+      },
       note_2025_06_23: {
         title: "🇵🇹 Suporte Português & Banner de Doação",
         content:

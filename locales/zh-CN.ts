@@ -463,6 +463,11 @@ export default {
     title: "新功能",
     release_notes: "更新日志",
     notes: {
+      note_2025_07_02: {
+        title: "🛠️ 自托管、俄语和新工具",
+        content:
+          "改进了<strong>自托管</strong>功能，添加了<strong>俄语</strong>支持，并引入了新的<em>健身工具</em>，包括卡路里计算器。🚀",
+      },
       note_2025_06_23: {
         title: "🇵🇹 葡萄牙语支持和捐赠横幅",
         content:

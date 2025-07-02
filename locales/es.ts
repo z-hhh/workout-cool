@@ -463,6 +463,11 @@ export default {
     title: "Novedades",
     release_notes: "Notas",
     notes: {
+      note_2025_07_02: {
+        title: "🛠️ Auto-alojamiento, Ruso y Nuevas Herramientas",
+        content:
+          "Mejora del <strong>auto-alojamiento</strong>, añadido soporte para <strong>ruso</strong>, e introducción de nuevas <em>herramientas de fitness</em> incluyendo una calculadora de calorías. 🚀",
+      },
       note_2025_06_23: {
         title: "🇵🇹 Soporte de Portugués y Banner de Donación",
         content:
