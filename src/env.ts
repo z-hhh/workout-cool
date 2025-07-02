@@ -1,6 +1,8 @@
 import { z } from "zod";
 import { createEnv } from "@t3-oss/env-nextjs";
 
+const booleanString = z.enum(["true", "false"]).transform((val) => val === "true");
+
 /**
  * This is the schema for the environment variables.
  *
@@ -21,10 +23,7 @@ export const env = createEnv({
     SMTP_PASS: z.string().optional(),
     SMTP_FROM: z.string().optional(),
     //issue fixed in zod 4. See https://github.com/colinhacks/zod/issues/3906
-    SMTP_SECURE: z
-      .enum(["true", "false"])
-      .default("false")
-      .transform((val) => val === "true"),
+    SMTP_SECURE: booleanString.default("false"),
 
     STRIPE_SECRET_KEY: z.string().optional(),
     STRIPE_WEBHOOK_SECRET: z.string().optional(),
@@ -49,6 +48,7 @@ export const env = createEnv({
     NEXT_PUBLIC_STRIPE_PRICE_YEARLY_RU: z.string().optional(),
     NEXT_PUBLIC_STRIPE_PRICE_MONTHLY_CN: z.string().optional(),
     NEXT_PUBLIC_STRIPE_PRICE_YEARLY_CN: z.string().optional(),
+    NEXT_PUBLIC_SHOW_ADS: booleanString.optional(),
   },
   experimental__runtimeEnv: {
     NEXT_PUBLIC_OPENPANEL_CLIENT_ID: process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID,
@@ -66,5 +66,6 @@ export const env = createEnv({
     NEXT_PUBLIC_STRIPE_PRICE_YEARLY_RU: process.env.NEXT_PUBLIC_STRIPE_PRICE_YEARLY_RU,
     NEXT_PUBLIC_STRIPE_PRICE_MONTHLY_CN: process.env.NEXT_PUBLIC_STRIPE_PRICE_MONTHLY_CN,
     NEXT_PUBLIC_STRIPE_PRICE_YEARLY_CN: process.env.NEXT_PUBLIC_STRIPE_PRICE_YEARLY_CN,
+    NEXT_PUBLIC_SHOW_ADS: process.env.NEXT_PUBLIC_SHOW_ADS,
   },
 });

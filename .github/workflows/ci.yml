@@ -103,5 +103,6 @@ jobs:
           NEXT_PUBLIC_STRIPE_PRICE_MONTHLY_CN: test_price_monthly
           NEXT_PUBLIC_STRIPE_PRICE_YEARLY_CN: test_price_yearly
           NEXT_PUBLIC_APP_URL: http://localhost:3000
+          NEXT_PUBLIC_SHOW_ADS: false
           STRIPE_SECRET_KEY: test_secret_key
           STRIPE_WEBHOOK_SECRET: test_webhook_secret

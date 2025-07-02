@@ -3,6 +3,7 @@
 import { ReactNode } from "react";
 
 import { useUserSubscription } from "@/features/ads/hooks/useUserSubscription";
+import { env } from "@/env";
 
 interface AdWrapperProps {
   children: ReactNode;
@@ -12,6 +13,10 @@ interface AdWrapperProps {
 
 export function AdWrapper({ children, fallback = null, forceShow = false }: AdWrapperProps) {
   const { isPremium, isPending } = useUserSubscription();
+
+  if (!env.NEXT_PUBLIC_SHOW_ADS) {
+    return null;
+  }
 
   // Force show ads in development if forceShow is true
   if (forceShow && process.env.NODE_ENV === "development") {
