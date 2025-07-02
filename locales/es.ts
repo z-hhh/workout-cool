@@ -122,6 +122,39 @@ export default {
           label: "Progresión promedio",
         },
       },
+
+      // Health Risks
+      health_risks: {
+        overweight: {
+          high_blood_pressure: "Presión arterial alta",
+          ldl_cholesterol: "Niveles altos de colesterol LDL (colesterol malo)",
+          hdl_cholesterol: "Niveles bajos de colesterol HDL (colesterol bueno)",
+          triglycerides: "Niveles altos de triglicéridos",
+          type_2_diabetes: "Diabetes tipo II",
+          coronary_heart_disease: "Enfermedad coronaria",
+          stroke: "Accidente cerebrovascular",
+          gallbladder_disease: "Enfermedad de la vesícula biliar",
+          osteoarthritis: "Osteoartritis",
+          sleep_apnea: "Apnea del sueño y problemas respiratorios",
+          certain_cancers: "Ciertos cánceres (endometrial, mama, colon, riñón, vesícula biliar, hígado)",
+          low_quality_life: "Baja calidad de vida",
+          mental_illnesses: "Enfermedades mentales como depresión clínica y ansiedad",
+          body_pains: "Dolores corporales y dificultad con funciones físicas",
+          increased_mortality: "Riesgo generalmente aumentado de mortalidad",
+        },
+        underweight: {
+          malnutrition: "Desnutrición y deficiencias vitamínicas",
+          anemia: "Anemia (capacidad reducida para transportar oxígeno en la sangre)",
+          osteoporosis: "Osteoporosis (riesgo aumentado de fracturas óseas)",
+          immune_function: "Función inmune disminuida",
+          growth_development: "Problemas de crecimiento y desarrollo (especialmente en niños)",
+          reproductive_issues: "Problemas reproductivos en mujeres debido a desequilibrios hormonales",
+          miscarriage_risk: "Mayor probabilidad de aborto espontáneo en el primer trimestre",
+          surgery_complications: "Complicaciones potenciales durante cirugías",
+          increased_mortality: "Riesgo generalmente aumentado de mortalidad",
+          underlying_conditions: "Puede indicar condiciones médicas subyacentes",
+        },
+      },
     },
 
     // Mission Banner
@@ -880,7 +913,7 @@ export default {
     subtitle: "Calculadoras esenciales para optimizar tu entrenamiento y nutrición",
     moreComingSoon: "Más herramientas próximamente",
     meta: {
-      title: "Herramientas de Fitness - Calculadoras para Entrenamiento y Nutrición | Workout.cool",
+      title: "Herramientas de Fitness - Calculadoras para Entrenamiento y Nutrición",
       description:
         "Calculadoras de fitness gratuitas: TDEE, macros, IMC, zonas de frecuencia cardíaca, 1RM y más. Optimiza tu entrenamiento y nutrición con nuestras herramientas esenciales.",
       keywords:
@@ -890,7 +923,7 @@ export default {
       title: "Calculadora de Calorías",
       description: "Calcula tus necesidades calóricas diarias (TDEE) basándote en tu nivel de actividad y objetivos",
       meta: {
-        title: "Calculadora de Calorías - TDEE y Necesidades Calóricas Diarias | Workout.cool",
+        title: "Calculadora de Calorías - TDEE y Necesidades Calóricas Diarias",
         description:
           "Calcula tu Gasto Energético Total Diario (TDEE) y necesidades calóricas diarias. Obtén recomendaciones personalizadas para pérdida de peso, mantenimiento o ganancia muscular.",
         keywords:
@@ -980,6 +1013,22 @@ export default {
         a4: "La división 30/40/30 (proteína/carbohidratos/grasa) es un enfoque equilibrado adecuado para la mayoría de las personas. Sin embargo, atletas, personas con condiciones médicas o aquellos que siguen dietas específicas (keto, vegano, etc.) pueden necesitar diferentes proporciones. Consulta a un nutricionista para recomendaciones personalizadas.",
       },
     },
+    "macro-calculator": {
+      title: "Calculadora de Macros",
+      description: "Encuentra tu distribución óptima de proteínas, carbohidratos y grasas para tus objetivos de fitness",
+    },
+    "bmi-calculator": {
+      title: "Calculadora de IMC",
+      description: "Calcula tu Índice de Masa Corporal y comprende tu categoría de peso",
+    },
+    "heart-rate-calculator": {
+      title: "Zonas de Frecuencia Cardíaca",
+      description: "Descubre tus zonas de entrenamiento óptimas para quemar grasa y mejorar tu rendimiento",
+    },
+    "one-rep-max": {
+      title: "Calculadora de 1RM",
+      description: "Estima tu 1RM y planifica tus porcentajes de entrenamiento de fuerza",
+    },
     back_to_calculators: "Volver a las calculadoras",
     body_fat_percentage: "Porcentaje de Grasa Corporal",
     body_fat_info_title: "¿Qué es el Porcentaje de Grasa Corporal?",
@@ -989,7 +1038,7 @@ export default {
       title: "Fórmulas de Calculadora de Calorías",
       subtitle: "Elige la mejor fórmula para tus necesidades y obtén cálculos calóricos precisos",
       meta: {
-        title: "Fórmulas de Calculadora de Calorías - Calculadoras TMB y TDEE | Workout.cool",
+        title: "Fórmulas de Calculadora de Calorías - Calculadoras TMB y TDEE",
         description:
           "Compara diferentes fórmulas de TMB: Mifflin-St Jeor, Harris-Benedict, Katch-McArdle, Cunningham y Oxford. Elige la mejor calculadora de calorías para tus necesidades.",
         keywords:
@@ -1047,7 +1096,7 @@ export default {
       title: "Calculadora Mifflin-St Jeor",
       subtitle: "El estándar dorado para el cálculo de TMB - más precisa para la población general",
       meta: {
-        title: "Calculadora Mifflin-St Jeor - TMB y TDEE Más Precisos | Workout.cool",
+        title: "Calculadora Mifflin-St Jeor - TMB y TDEE Más Precisos",
         description:
           "Calcula tu TMB y TDEE usando la ecuación de Mifflin-St Jeor - la fórmula más precisa para la población general. Obtén recomendaciones calóricas personalizadas.",
         keywords:
@@ -1061,7 +1110,7 @@ export default {
       title: "Calculadora Harris-Benedict",
       subtitle: "Fórmula TMB clásica - el enfoque tradicional para el cálculo de calorías",
       meta: {
-        title: "Calculadora Harris-Benedict - Fórmula TMB y TDEE Clásica | Workout.cool",
+        title: "Calculadora Harris-Benedict - Fórmula TMB y TDEE Clásica",
         description:
           "Calcula tu TMB y TDEE usando la ecuación revisada de Harris-Benedict (1984). La fórmula clásica que inició los cálculos calóricos modernos.",
         keywords: "calculadora Harris-Benedict, calculadora TMB clásica, calculadora TDEE tradicional, fórmula Harris-Benedict revisada",
@@ -1074,7 +1123,7 @@ export default {
       title: "Calculadora Katch-McArdle",
       subtitle: "Cálculo preciso de TMB basado en masa corporal magra - ideal para atletas",
       meta: {
-        title: "Calculadora Katch-McArdle - TMB y TDEE de Masa Corporal Magra | Workout.cool",
+        title: "Calculadora Katch-McArdle - TMB y TDEE de Masa Corporal Magra",
         description:
           "Calcula tu TMB y TDEE usando la fórmula de Katch-McArdle basada en masa corporal magra. Más precisa para personas que conocen su porcentaje de grasa corporal.",
         keywords:
@@ -1088,7 +1137,7 @@ export default {
       title: "Calculadora Cunningham",
       subtitle: "Fórmula TMB diseñada para atletas muy magros y culturistas",
       meta: {
-        title: "Calculadora Cunningham - TMB para Atletas Magros y Culturistas | Workout.cool",
+        title: "Calculadora Cunningham - TMB para Atletas Magros y Culturistas",
         description:
           "Calcula tu TMB y TDEE usando la fórmula de Cunningham, específicamente diseñada para atletas muy magros y culturistas con baja grasa corporal.",
         keywords:
@@ -1102,7 +1151,7 @@ export default {
       title: "Calculadora Oxford",
       subtitle: "Fórmula TMB moderna basada en poblaciones europeas con consideraciones de edad",
       meta: {
-        title: "Calculadora Oxford - Fórmula TMB y TDEE Moderna | Workout.cool",
+        title: "Calculadora Oxford - Fórmula TMB y TDEE Moderna",
         description:
           "Calcula tu TMB y TDEE usando la ecuación de Oxford (2005), una fórmula moderna basada en poblaciones europeas con cálculos específicos por edad.",
         keywords:
@@ -1116,7 +1165,7 @@ export default {
       title: "Comparar todas las fórmulas BMR",
       subtitle: "Ve cómo diferentes fórmulas BMR calculan tus necesidades calóricas lado a lado",
       meta: {
-        title: "Comparación de fórmulas BMR - Comparar todos los calculadores de calorías | Workout.cool",
+        title: "Comparación de fórmulas BMR - Comparar todos los calculadores de calorías",
         description:
           "Compara las fórmulas Mifflin-St Jeor, Harris-Benedict, Katch-McArdle, Cunningham y Oxford BMR lado a lado. Ve qué fórmula funciona mejor para ti.",
         keywords:
@@ -1134,6 +1183,260 @@ export default {
         "Diferentes fórmulas pueden dar resultados variables. Generalmente, diferencias de ±100-200 calorías son normales y esperadas.",
       recommendation:
         "Para la mayoría de las personas, Mifflin-St Jeor proporciona la base más precisa. Los atletas deberían considerar Katch-McArdle si conocen su porcentaje de grasa corporal.",
+    },
+    "bmi-calculator-hub": {
+      title: "Herramientas Calculadora IMC",
+      subtitle: "Calcula tu Índice de Masa Corporal con diferentes métodos y obtén información de salud personalizada",
+      meta: {
+        title: "Calculadora IMC - Herramientas de Índice de Masa Corporal y Evaluación de Salud",
+        description:
+          "Calcula tu IMC con nuestras herramientas integrales. IMC estándar, ajustado para atletas, IMC pediátrico, y herramientas de comparación. Obtén información de salud y recomendaciones.",
+        keywords: "calculadora IMC, índice masa corporal, evaluación salud, estado peso, herramientas IMC, IMC pediátrico, IMC atleta",
+      },
+      understanding_bmi: "Entendiendo el IMC",
+      bmi_explanation:
+        "El IMC es una herramienta de detección que ayuda a evaluar si tienes un peso saludable para tu altura. Elige la calculadora adecuada para tus necesidades:",
+      recommendation_standard: "Mejor para la población general y detección inicial de salud",
+      recommendation_adjusted: "Más preciso para atletas e individuos musculosos",
+      recommendation_pediatric: "Especializado para niños y adolescentes con percentiles específicos por edad",
+      popularity: "Popularidad",
+      accuracy: "Precisión",
+      accuracy_high: "Alta",
+      accuracy_good: "Buena",
+      accuracy_medium: "Media",
+      best_for: "Mejor para",
+      best_for_general: "Uso general",
+      best_for_athletes: "Atletas",
+      best_for_children: "Niños",
+      best_for_comparison: "Comparar todo",
+      category_standard: "Estándar",
+      category_advanced: "Avanzado",
+      category_specialized: "Especializado",
+      standard: {
+        title: "Calculadora IMC Estándar",
+        description: "Cálculo IMC clásico usando la fórmula estándar de la OMS. Evaluación rápida y fácil para la población general.",
+        page_title: "Calculadora IMC Estándar",
+        page_description: "Calcula tu Índice de Masa Corporal usando la fórmula estándar de la OMS. Obtén resultados instantáneos con categoría de salud y recomendaciones personalizadas.",
+      },
+      adjusted: {
+        title: "Calculadora IMC Ajustada",
+        description:
+          "Cálculo IMC mejorado que considera la masa muscular y composición corporal para resultados más precisos en individuos atléticos.",
+      },
+      pediatric: {
+        title: "Calculadora IMC Pediátrica",
+        description:
+          "Calculadora IMC especializada para niños y adolescentes usando percentiles específicos por edad y sexo y gráficos de crecimiento.",
+      },
+      comparison: {
+        title: "Herramienta de Comparación IMC",
+        description: "Compara diferentes métodos de cálculo IMC lado a lado para entender cómo varios factores afectan tus resultados.",
+      },
+    },
+  },
+  "bmi-calculator": {
+    educational: {
+      introduction_title: "Introducción al IMC",
+      introduction_text:
+        "El IMC es una medida de la delgadez o corpulencia de una persona basada en su altura y peso, y está destinado a cuantificar la masa tisular. Se utiliza ampliamente como indicador general de si una persona tiene un peso corporal saludable para su altura.",
+      introduction_usage:
+        "Específicamente, el valor obtenido del cálculo del IMC se utiliza para categorizar si una persona tiene bajo peso, peso normal, sobrepeso u obesidad dependiendo del rango en el que caiga el valor. Estos rangos de IMC varían según factores como la región y la edad, y a veces se subdividen en subcategorías como bajo peso severo u obesidad muy severa.",
+
+      adult_table_title: "Tabla de IMC para Adultos",
+      adult_table_description:
+        "Esta es la recomendación de peso corporal de la Organización Mundial de la Salud (OMS) basada en valores de IMC para adultos. Se utiliza tanto para hombres como mujeres, de 20 años o más.",
+
+      children_table_title: "Tabla de IMC para Niños y Adolescentes, Edad 2-20",
+      children_table_description:
+        "Los Centros para el Control y la Prevención de Enfermedades (CDC) recomiendan la categorización del IMC para niños y adolescentes entre 2 y 20 años.",
+
+      classification: "Clasificación",
+      bmi_range: "Rango de IMC - kg/m²",
+      category: "Categoría",
+      percentile_range: "Rango de Percentil",
+      underweight: "Bajo peso",
+      healthy_weight: "Peso Saludable",
+      at_risk_overweight: "En Riesgo de Sobrepeso",
+      overweight: "Sobrepeso",
+
+      overweight_risks_title: "Riesgos Asociados con el Sobrepeso",
+      overweight_risks_intro:
+        "El sobrepeso aumenta el riesgo de varias enfermedades graves y condiciones de salud. A continuación se presenta una lista de dichos riesgos, según los Centros para el Control y la Prevención de Enfermedades (CDC):",
+
+      cardiovascular_risks: "Riesgos Cardiovasculares",
+      high_blood_pressure: "Presión arterial alta",
+      cholesterol_issues: "Niveles más altos de colesterol LDL, niveles más bajos de colesterol HDL y niveles altos de triglicéridos",
+      coronary_heart_disease: "Enfermedad coronaria",
+      stroke: "Accidente cerebrovascular",
+
+      metabolic_risks: "Riesgos Metabólicos",
+      type_2_diabetes: "Diabetes tipo II",
+      gallbladder_disease: "Enfermedad de la vesícula biliar",
+      sleep_apnea: "Apnea del sueño y problemas respiratorios",
+      osteoarthritis: "Osteoartritis, un tipo de enfermedad articular causada por la degradación del cartílago articular",
+
+      other_risks: "Otros Riesgos de Salud",
+      certain_cancers: "Ciertos cánceres (endometrial, mama, colon, riñón, vesícula biliar, hígado)",
+      mental_health_issues: "Enfermedades mentales como depresión clínica, ansiedad y otras",
+      reduced_quality_life: "Baja calidad de vida y dolores corporales",
+      increased_mortality: "En general, un mayor riesgo de mortalidad comparado con aquellos con un IMC saludable",
+
+      underweight_risks_title: "Riesgos Asociados con el Bajo Peso",
+      underweight_risks_intro: "El bajo peso tiene sus propios riesgos asociados, listados a continuación:",
+      malnutrition: "Desnutrición, deficiencias vitamínicas, anemia (capacidad reducida para transportar oxígeno en la sangre)",
+      osteoporosis: "Osteoporosis, una enfermedad que causa debilidad ósea, aumentando el riesgo de fractura de huesos",
+      immune_function_decrease: "Una disminución en la función inmune",
+      growth_development_issues: "Problemas de crecimiento y desarrollo, particularmente en niños y adolescentes",
+      reproductive_issues: "Posibles problemas reproductivos para mujeres debido a desequilibrios hormonales",
+      surgery_complications: "Complicaciones potenciales como resultado de cirugía",
+      increased_mortality_underweight: "En general, un mayor riesgo de mortalidad comparado con aquellos con un IMC saludable",
+
+      adults_limitations: "En Adultos",
+      older_adults_fat: "Los adultos mayores tienden a tener más grasa corporal que los adultos más jóvenes con el mismo IMC",
+      women_fat_difference: "Las mujeres tienden a tener más grasa corporal que los hombres para un IMC equivalente",
+      athletes_muscle_mass: "Individuos musculosos y atletas altamente entrenados pueden tener IMCs más altos debido a gran masa muscular",
+
+      children_limitations: "En Niños y Adolescentes",
+      height_maturation_influence: "La altura y el nivel de maduración sexual pueden influir en el IMC y la grasa corporal entre los niños",
+      fat_free_mass_difference: "El IMC podría ser resultado de niveles aumentados de grasa o masa libre de grasa",
+      population_accuracy: "El IMC es bastante indicativo de la grasa corporal para el 90-95% de la población",
+
+      formulas_title: "Fórmula del IMC",
+      metric_formula: "Fórmula Métrica",
+      imperial_formula: "Fórmula Imperial",
+      example: "Ejemplo",
+
+      bmi_prime_formula: "Fórmula del IMC Prime",
+      bmi_prime_description: "Relación de tu IMC con el límite superior del IMC normal (25)",
+
+      ponderal_index_title: "Índice Ponderal",
+      ponderal_index_explanation:
+        "El Índice Ponderal (IP) es similar al IMC en que mide la delgadez o corpulencia de una persona basada en su altura y peso. La principal diferencia entre el IP y el IMC es el cubo en lugar del cuadrado de la altura en la fórmula. Mientras que el IMC puede ser una herramienta útil al considerar grandes poblaciones, no es confiable para determinar la delgadez o corpulencia en individuos.",
+      ponderal_index_metric_description: "Índice Ponderal usando unidades métricas",
+      ponderal_index_imperial_description: "Índice Ponderal usando unidades imperiales",
+
+      medical_disclaimer_title: "Descargo de Responsabilidad Médica",
+    },
+    height: "Altura",
+    weight: "Peso",
+    feet: "pies",
+    inches: "pulg",
+    cm: "cm",
+    kg: "kg",
+    lbs: "lbs",
+    height_placeholder: "Ingresa la altura",
+    weight_placeholder: "Ingresa el peso",
+    calculate: "Calcular IMC",
+    your_bmi: "Tu IMC",
+    bmi_prime: "IMC Prime",
+    ponderal_index: "Índice Ponderal",
+    bmi_category: "Categoría IMC",
+    health_risk: "Riesgo de Salud",
+    recommendations_label: "Recomendaciones",
+    units: "Unidades",
+    metric: "Métrico (kg/cm)",
+    imperial: "Imperial (lbs/pies)",
+
+    // Detailed BMI Categories (WHO)
+    category_severe_thinness: "Delgadez Severa",
+    category_moderate_thinness: "Delgadez Moderada",
+    category_mild_thinness: "Delgadez Leve",
+    category_normal: "Peso Normal",
+    category_overweight: "Sobrepeso",
+    category_obese_class_1: "Obesidad Clase I",
+    category_obese_class_2: "Obesidad Clase II",
+    category_obese_class_3: "Obesidad Clase III",
+
+    // Health Risks
+    risk_low: "Bajo",
+    risk_normal: "Normal",
+    risk_increased: "Aumentado",
+    risk_high: "Alto",
+    risk_very_high: "Muy Alto",
+    risk_extremely_high: "Extremadamente Alto",
+
+    // Additional Information
+    bmi_range: "Rango IMC",
+    ideal_weight: "Rango de Peso Ideal",
+    weight_to_lose: "Peso a Perder",
+    weight_to_gain: "Peso a Ganar",
+    normal_range: "Rango IMC normal: 18,5 - 24,9",
+
+    // BMI Prime
+    about_bmi_prime: "Acerca del IMC Prime",
+    bmi_prime_explanation:
+      "El IMC Prime es la relación entre tu IMC y el límite superior del IMC normal (25). Un valor de 1,0 significa que estás en el límite superior del peso normal.",
+    underweight: "Bajo peso",
+    normal: "Normal",
+    overweight: "Sobrepeso",
+    obese: "Obeso",
+
+    // Limitations
+    limitations_title: "Limitaciones del IMC",
+    limitations_text:
+      "El IMC no distingue entre masa muscular y masa grasa. Los atletas y personas muy musculosas pueden tener un IMC alto a pesar de estar saludables. La edad, sexo, etnia y composición corporal también afectan la interpretación.",
+
+    disclaimer:
+      "El IMC es una herramienta de detección y puede no reflejar la composición corporal. Consulta profesionales de la salud para consejos personalizados.",
+
+    // Recommendations
+    recommendations: {
+      severe_thinness: {
+        medical_consultation: "Consulta médica inmediata fuertemente recomendada",
+        nutritional_assessment: "Evaluación nutricional integral necesaria",
+        weight_gain_program: "Puede requerir programa supervisado de aumento de peso",
+        screen_conditions: "Detectar condiciones médicas subyacentes",
+        psychological_evaluation: "Considerar evaluación psicológica si se sospecha trastorno alimentario",
+      },
+      moderate_thinness: {
+        healthcare_provider: "Consultar con profesional de la salud para evaluación",
+        nutrient_dense_foods: "Enfocarse en alimentos densos en nutrientes y calorías",
+        registered_dietitian: "Considerar trabajar con un dietista registrado",
+        monitor_malnutrition: "Monitorear signos de desnutrición",
+        gradual_weight_gain: "Aumento de peso gradual y saludable recomendado",
+      },
+      mild_thinness: {
+        consider_healthcare: "Considerar consultar con un profesional de la salud",
+        nutrient_dense_foods: "Enfocarse en alimentos densos en nutrientes para ganar peso saludablemente",
+        strength_training: "Incluir entrenamiento de fuerza para desarrollar masa muscular",
+        monitor_health: "Monitorear tu salud regularmente",
+        gradual_weight_gain: "Apuntar a un aumento de peso gradual (0.5-1 kg por semana)",
+      },
+      normal: {
+        maintain_weight: "Mantener tu peso saludable actual",
+        physical_activity: "Continuar actividad física regular (150+ minutos por semana)",
+        balanced_diet: "Seguir una dieta equilibrada y nutritiva",
+        health_checkups: "Chequeos de salud regulares",
+        overall_wellness: "Enfocarse en el bienestar general y composición corporal",
+      },
+      overweight: {
+        gradual_weight_loss: "Apuntar a pérdida de peso gradual (0.5-1 kg por semana)",
+        increase_activity: "Aumentar actividad física a 150+ minutos por semana",
+        portion_control: "Enfocarse en control de porciones y nutrición equilibrada",
+        healthcare_provider: "Considerar consultar con un profesional de la salud",
+        lifestyle_goals: "Establecer metas de estilo de vida realistas y sostenibles",
+      },
+      obese_class_1: {
+        healthcare_provider: "Consultar con profesional de la salud para plan de manejo de peso",
+        weight_loss_target: "Apuntar a pérdida de peso del 5-10% inicialmente",
+        diet_exercise: "Combinar intervenciones de dieta y ejercicio",
+        nutritional_counseling: "Considerar asesoramiento nutricional profesional",
+        screen_conditions: "Detectar condiciones de salud relacionadas con el peso",
+      },
+      obese_class_2: {
+        medical_supervision: "Buscar supervisión médica para manejo de peso",
+        lifestyle_programs: "Considerar programas integrales de intervención de estilo de vida",
+        evaluate_conditions: "Evaluar condiciones de salud relacionadas con el peso",
+        medical_treatments: "Puede beneficiarse de tratamientos médicos para pérdida de peso",
+        bariatric_surgery: "Considerar evaluación de cirugía bariátrica si es apropiado",
+      },
+      obese_class_3: {
+        medical_consultation: "Consulta médica inmediata recomendada",
+        bariatric_surgery: "Considerar evaluación de cirugía bariátrica",
+        weight_management: "Programa médico integral de manejo de peso",
+        health_complications: "Abordar complicaciones de salud relacionadas con el peso",
+        multidisciplinary: "Enfoque multidisciplinario con equipo médico",
+      },
     },
   },
 } as const;
